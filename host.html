@@ -1,28 +1,10 @@
 <html>
 <head>
 	<title>Shuteye.co - Video Without Monitors</title>
-	<link rel="icon" type="image/png" href="http://shuteye.co/img/favicon.png" /> 
+	<link rel="icon" type="image/png" href="img/favicon.png" /> 
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-	<script>
-		window.URL = window.URL || window.webkitURL;
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-								 navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-		var video = document.querySelector('video');
-		if (!navigator.getUserMedia) {
-			fallback()
-		} else {
-			navigator.getUserMedia({video:true}, success, fallback);
-		}
-
-		function success(stream) {
-			video.src = window.URL.createObjectURL(stream);
-		}
-
-		function fallback(e) {}
-	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -46,8 +28,8 @@
 	</div>
 		<div class="row-fluid">
 			<div id="content" class="span12">
-<!-- 				<img class="local" src="http://placehold.it/210x210">
-				<img class="focus" src="http://placehold.it/940x600"> -->
+				<img class="local" src="http://placehold.it/210x210">
+				<img class="focus" src="http://placehold.it/940x600">
 				<video autoplay></video>
 			</div>
 		</div>

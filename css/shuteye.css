@@ -1,0 +1,110 @@
+.tag {
+  color: #6574C3;
+  font-family: inherit;
+  text-rendering: optimizelegibility;
+  line-height: 70px;
+  font-size: 68.5px;
+  margin-top: 30px;
+}
+
+.sub-tag {
+  color: #74c365;
+  font-family: inherit;
+  text-rendering: optimizelegibility;
+  line-height: 25px;
+  font-size: 23.5px;
+  margin-top: 10px;
+}
+
+.buy {
+  margin-top: 70px;
+  line-height: 25px;
+  font-size: 23.5px;
+}
+
+.link {
+  color: #0088cc !important;
+  text-decoration: none !important;
+}
+
+i {
+  color: #74c365;
+}
+
+.q {
+  color: #6574C3 !important;
+}
+
+.qa {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  margin: 0 20px 0 0;
+  color: #74c365;
+  font-family: inherit;
+  text-rendering: optimizelegibility;
+  line-height: 60px;
+  font-size: 58.5px;
+}
+
+.qa-text {
+  font-size: 22px;
+  line-height:30px;
+  color: #777777;
+}
+
+.try-button {
+  margin-top: 60px; 
+}
+
+.try-text {
+  line-height: 45px;
+  font-size: 43.5px;
+}
+
+.features {
+  margin-top: 80px;
+}
+
+.feature {
+  color: #777777;
+  font-weight: normal;
+}
+
+.feature-text {
+  font-size: 19px;
+}
+
+footer {
+  margin-top: 60px;
+}
+
+.local {
+  position: absolute;
+  border: 2px solid #777777;
+}
+
+#attendees {
+  position: relative;
+  margin-top: -250px;
+  height: 150px;
+  clear: both;
+  padding-top: 20px;
+}
+
+.audio {
+  position: absolute; top: 0 left: 0;
+  padding-top: 5px;
+  padding-left: 7px;
+  font-size: 24px;
+  color: #777777;
+}
+
+.talking {
+  color: #74c365;
+}
+
+.focused {
+  border: 5px solid #74c365;
+  padding: 0px;
+}

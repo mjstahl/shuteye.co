@@ -1,3 +1,7 @@
+.navbar-fixed-bottom {
+  margin-bottom: 20px;
+}
+
 .tag {
   color: #6574C3;
   font-family: inherit;

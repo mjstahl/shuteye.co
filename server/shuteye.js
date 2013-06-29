@@ -6,7 +6,7 @@ var http = require('http').createServer(httpHandler),
 http.listen(8001)
 
 function httpHandler(req, res) { 
-	path = url.parse(request.url);
+	path = url.parse(req.url);
 	console.log(path);
 }
 

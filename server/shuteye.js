@@ -1,14 +1,16 @@
-var http = require('http').createServer(httpHandler),
-    io = require('socket.io').listen(http),
-    url = require('url'),
+var app = require('express').express(),
+	io = require('socket.io'),
     uuid = require('node-uuid');
 
-http.listen(8001)
+app.enable('trust proxy').listen(8001);
+io.listen(app);
 
-function httpHandler(req, res) { 
-	path = url.parse(req.url);
-	console.log(path);
-}
+app.get('/h/:id', function(req, res) {
+	if (id == null || id == undefined) {
+		res.redirect('/h/' + uuid());
+	}
+	console.log(id);
+});
 
 io.sockets.on('connection', function(client) {
 	client.on('message', function(details) {

@@ -1,9 +1,7 @@
-var app = require('express').express(),
-	io = require('socket.io'),
-    uuid = require('node-uuid');
-
-app.enable('trust proxy').listen(8001);
-io.listen(app);
+var express = require('express'),
+	io 	= require('socket.io'),
+    uuid = require('node-uuid'),
+    app = express();
 
 app.get('/h/:id', function(req, res) {
 	if (id == null || id == undefined) {
@@ -11,6 +9,9 @@ app.get('/h/:id', function(req, res) {
 	}
 	console.log(id);
 });
+
+app.enable('trust proxy').listen(8001);
+io.listen(app);
 
 io.sockets.on('connection', function(client) {
 	client.on('message', function(details) {

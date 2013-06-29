@@ -128,7 +128,8 @@ footer {
   color: #74c365;
 }
 
-.focused {
-  border: 5px solid #74c365;
-  padding: 0px;
+#focused > video {
+  width: 90%;
+  max-width: 100%
+  height: auto;
 }

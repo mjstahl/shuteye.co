@@ -23,17 +23,21 @@
 		</div>
 	</div>
 		<div class="row-fluid">
-			<div id="us" class="span12 text-center"></div>
+			<div id="focused" class="span12 text-center">
+				
+			</div>
 		</div>
 		<div class="row-fluid">
 			<div class="span12 text-center">
-				<div id="them" class="focus"></div>
+				<div id="other" class="focus">
+					
+				</div>
 			</div>
 		</div>
 	<script>
 	var rtc = new WebRTC({
-		localVideoEl: 'us',
-		remoteVideoEl: 'them',
+		localVideoEl: 'focused',
+		remoteVideoEl: 'other',
 		autoRequestMedia: true
 	});
 	rtc.on('readToCall', function() {

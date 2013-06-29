@@ -5,12 +5,12 @@ var express = require('express'),
 
 app.enable('trust proxy');
 
+app.get('/h', function(req, res) {
+	res.redirect('/h/' + uuid());
+});
+
 app.get('/h/:id', function(req, res) {
-	var id = req.params.id;
-	if (id == null || id == undefined) {
-		res.redirect('/h/' + uuid());
-	}
-	console.log(id);
+	console.log(req.params.id);
 });
 
 io.sockets.on('connection', function(client) {

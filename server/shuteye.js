@@ -6,6 +6,7 @@ var express = require('express'),
 app.enable('trust proxy');
 
 app.get('/h/:id', function(req, res) {
+	var id = req.params.id;
 	if (id == null || id == undefined) {
 		res.redirect('/h/' + uuid());
 	}

@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+	<script src="http://simplewebrtc.com/latest.js"></script>
 </head>
 <body>
 	<div class="navbar">
@@ -21,31 +22,23 @@
 			</ul>
 		</div>
 	</div>
-		<div class="container">
+	<div class="container">
 		<div class="row-fluid">
 			<div id="content" class="span12">
-				<img class="local" src="http://placehold.it/210x210">
-				<img class="focus" src="http://placehold.it/940x600">
-			</div>
-		</div>
-		<div id="attendees" class="row-fluid">
-			<div class="span3 text-center">
-				<i class="audio icon-microphone"></i>
-				<img src="http://placehold.it/210x210">
-			</div>
-			<div class="span3 text-center">
-				<i class="audio talking icon-microphone"></i>
-				<img src="http://placehold.it/210x210">
-			</div>
-			<div class="span3 text-center">
-				<i class="audio icon-microphone"></i>
-				<img src="http://placehold.it/210x210">
-			</div>
-			<div class="span3 text-center">
-				<i class="audio talking icon-microphone"></i>
-				<img src="http://placehold.it/210x210">
+				<div id="us" class="local"></div>
+				<div id="them" class="focus"></div>
 			</div>
 		</div>
 	</div>
+	<script>
+	var rtc = new WebRTC({
+		localVideoEl: 'us',
+		remoteVideoEl: 'them',
+		autoRequestMedia: true
+	});
+	rtc.on('readToCall', function() {
+		rtc.joinRoom('test');
+	})
+	</script>
 </body>
 </html>

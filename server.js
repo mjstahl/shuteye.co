@@ -24,7 +24,7 @@ app.get('/h', function(req, res) {
 
 
 app.get('/h/:id', function(req, res) {
-	res.send(200, "Hello World");
+	res.sendfile(__dirname + 'host.html');
 });
 
 io.sockets.on('connection', function(client) {

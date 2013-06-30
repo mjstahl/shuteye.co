@@ -35,12 +35,12 @@ io.sockets.on('connection', function(client) {
 	client.on('message', function(details) {
 		var other = io.sockets.sockets[details.to];
 
-		if (!otherClient) {
+		if (!other) {
 			return;
 		}
 		delete details.to;
 		details.from = client.id;
-		otherClient.emit('message', details);
+		other.emit('message', details);
 	});
 
 	client.on('join', function(name) {

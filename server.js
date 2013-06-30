@@ -17,14 +17,12 @@ app.get('/buy', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
-var uuid = uuid();
 app.get('/h', function(req, res) {
 	res.redirect('/h/' + uuid());
 });
 
-
 app.get('/h/:id', function(req, res) {
-	res.sendfile(__dirname + 'host.html');
+	res.sendfile(__dirname + '/host.html');
 });
 
 io.sockets.on('connection', function(client) {

@@ -6,11 +6,15 @@ var express = require('express'),
 app.enable('trust proxy');
 
 app.get('/', function(req, res) {
-	res.sendfile(__dirname + 'index.html');
+	res.sendfile(__dirname + '/index.html');
 });
 
 app.get('/faq', function(req, res) {
-	res.sendfile(__dirname + 'faq.html');
+	res.sendfile(__dirname + '/faq.html');
+});
+
+app.get('/buy', function(req, res) {
+	res.sendfile(__dirname + '/buy.html');
 });
 
 var uuid = uuid();

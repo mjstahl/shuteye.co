@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/css/shuteye.css" type="text/css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="/js/signals.js"></script>
+	<script src="/js/webrtc.js"></script>
 </head>
 <body>
 	<div class="navbar">
@@ -36,14 +36,14 @@
 			</div>
 		</div>
 	<script>
-	var signal = new WebRTC({
+	var rtc = new WebRTC({
 		localVideoEl: 'other',
 		remoteVideoEl: 'focused',
 		autoRequestMedia: true
 	});
-	signal.on('readyToCall', function() {
+	rtc.on('readyToCall', function() {
 		rtc.joinRoom('test');
-	})
+	});
 	</script>
 </body>
 </html>

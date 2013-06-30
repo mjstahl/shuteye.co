@@ -27,6 +27,10 @@ app.get('/h/:id', function(req, res) {
 	res.sendfile(__dirname + '/host.html');
 });
 
+app.get('/j', function(req, res) {
+	res.sendfile(__dirname + '/join.html');
+});
+
 io.sockets.on('connection', function(client) {
 	client.on('message', function(details) {
 		var other = io.sockets.sockets[details.to];

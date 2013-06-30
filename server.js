@@ -1,3 +1,5 @@
+#!/usr/bin/nodejs
+
 var express = require('express'),
 	app = express(),
 	io 	= require('socket.io').listen(app.listen(8001)),

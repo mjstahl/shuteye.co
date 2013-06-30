@@ -18,9 +18,9 @@ app.get('/h', function(req, res) {
 	res.redirect('/h/' + uuid());
 });
 
+
 app.get('/h/:id', function(req, res) {
-	res.set('Content-Type', 'text/html');
-	res.send(new Buffer(html));
+	res.send(200, "Hello World");
 });
 
 io.sockets.on('connection', function(client) {

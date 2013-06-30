@@ -5,12 +5,33 @@ var express = require('express'),
 
 app.enable('trust proxy');
 
+var uuid = uuid();
 app.get('/h', function(req, res) {
 	res.redirect('/h/' + uuid());
 });
 
+var html = "<!DOCTYPE html>
+<html>
+    <head>
+        <script src=\"js/signals.js\"></script>
+        var webrtc = new WebRTC({
+        	localVideoEl: 'localVideo',
+        	remoteVideoEl: 'remotesVideo',
+        	autoRequestMedia: true
+        });
+		webrtc.on('readyToCall', function() {
+			webrtc.joinRoom(" + uuid + ")
+		});
+    </head>
+    <body>
+        <div id=\"localVideo\"></div>
+        <div id=\"remotesVideos\"></div>
+    </body>
+</html>"
+
 app.get('/h/:id', function(req, res) {
-	console.log(req.params.id);
+	res.set('Content-Type', 'text/html');
+	res.send(new Buffer(html));
 });
 
 io.sockets.on('connection', function(client) {

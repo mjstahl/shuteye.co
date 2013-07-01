@@ -128,13 +128,7 @@ footer {
   color: #74c365;
 }
 
-#focused > video {
-  width: 90%;
-  max-width: 100%
-  height: auto;
-}
-
-#other > video {
+video {
   width: 90%;
   max-width: 100%
   height: auto;

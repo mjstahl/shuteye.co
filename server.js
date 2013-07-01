@@ -67,12 +67,6 @@ io.sockets.on('connection', function(client) {
 	client.on('leave', leave);
 
 	client.on('create', function(name, callback) {
-		callback = name;
-		if (io.sockets.clients(name).length) {
-			callback('taken');
-		} else {
 			client.join(name);
-			//if (callback) callback(null, name);
-		}
 	});
 });

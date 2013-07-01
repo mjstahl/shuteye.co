@@ -133,3 +133,9 @@ video {
   max-width: 100%
   height: auto;
 }
+
+.pip {
+  width: 20%;
+  position: absolute;
+  text-align: left;
+}

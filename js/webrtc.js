@@ -300,6 +300,7 @@ function WebRTC(opts) {
         if (!self.pcs[room.id]) {
             self.startVideoCall(room.id);
         }
+        self.emit('joined');
     });
     connection.on('left', function (room) {
         var conv = self.pcs[room.id];

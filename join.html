@@ -25,18 +25,23 @@
 	</div>
 		<div class="row-fluid">
 			<div class="span12 text-center">
-				<span id="focused"></span>
-				<span id="other"></span>
+				<span id="local"></span>
+				<span id="remote"></span>
 			</div>
 		</div>
 	<script>
 	var rtc = new WebRTC({
-		localVideoEl: 'other',
-		remoteVideosEl: 'focused',
+		localVideoEl: 'local',
+		remoteVideosEl: 'remote',
 		autoRequestMedia: true
 	});
+	
 	rtc.on('readyToCall', function() {
 		rtc.joinRoom('test');
+	});
+
+	rtc.on('join', function() {
+		$('#local').prop('class', 'pip');
 	});
 	</script>
 </body>

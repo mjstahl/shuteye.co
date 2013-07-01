@@ -515,7 +515,12 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
     el.id = this.id;
     attachMediaStream(el, stream);
     if (container) container.appendChild(el);
-    this.emit('videoAdded', el);
+    
+    // TODO 'local' should not be called out directly
+    // if the name of the id of the container changes
+    // it will break the display
+    var el = document.getElementById('local');
+    el.setAttribute('class', 'pip');
 };
 
 Conversation.prototype.handleStreamRemoved = function () {

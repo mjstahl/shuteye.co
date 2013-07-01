@@ -38,11 +38,6 @@
 	rtc.on('readyToCall', function() {
 		rtc.createRoom('test');
 	});
-
-	rtc.on('join', function() {
-		console.log("JOIN");
-		$('#local').setAttribute('class', 'pip');
-	});
 	</script>
 </body>
 </html>

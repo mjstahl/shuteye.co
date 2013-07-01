@@ -68,8 +68,6 @@ io.sockets.on('connection', function(client) {
 
 	client.on('create', function(name, callback) {
 		callback = name;
-		name = uuid();
-
 		if (io.sockets.clients(name).length) {
 			callback('taken');
 		} else {

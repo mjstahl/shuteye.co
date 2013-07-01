@@ -45,7 +45,7 @@ io.sockets.on('connection', function(client) {
 
 	client.on('join', function(name) {
 		client.join(name);
-		io.sockes.in(name).emit('joined', {
+		io.sockets.in(name).emit('joined', {
 			room: name, 
 			id: client.id
 		});

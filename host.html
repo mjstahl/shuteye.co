@@ -40,7 +40,8 @@
 	});
 
 	rtc.on('join', function() {
-		$('#local').prop('class', 'pip');
+		console.log("JOIN");
+		$('#local').setAttribute('class', 'pip');
 	});
 	</script>
 </body>

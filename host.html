@@ -38,6 +38,8 @@
 	rtc.on('readyToCall', function() {
 		rtc.createRoom('test');
 	});
+
+	window.onbeforeunload = function() { rtc.leaveRoom(); }
 	</script>
 </body>
 </html>

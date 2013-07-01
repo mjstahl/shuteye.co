@@ -1,12 +1,12 @@
 #!/usr/bin/nodejs
 
-var express = require('express'),
-	app = express(),
-	io 	= require('socket.io').listen(app.listen(8001)),
-    uuid = require('node-uuid');
+var app = require('express')(),
+	crypto = require('crypto'),
+	io 	= require('socket.io').listen(app.listen(8001));
 
 app.enable('trust proxy');
 
+// HTTP Handlers
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + '/index.html');
 });
@@ -20,7 +20,7 @@ app.get('/buy', function(req, res) {
 });
 
 app.get('/h', function(req, res) {
-	res.redirect('/h/' + uuid());
+	res.redirect('/h/' + random_sha1());
 });
 
 app.get('/h/:id', function(req, res) {
@@ -31,6 +31,8 @@ app.get('/j', function(req, res) {
 	res.sendfile(__dirname + '/join.html');
 });
 
+
+// Socket IO Events
 io.sockets.on('connection', function(client) {
 	client.on('message', function(details) {
 		var other = io.sockets.sockets[details.to];
@@ -70,3 +72,9 @@ io.sockets.on('connection', function(client) {
 			client.join(name);
 	});
 });
+
+// Utility Functions
+function random_sha1() {
+	var seed = crypto.randomBytes(20);
+	return crypto.createHash('sha1').update(seed).digest('hex');
+}

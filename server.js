@@ -74,7 +74,7 @@ io.sockets.on('connection', function(client) {
 			callback('taken');
 		} else {
 			client.join(name);
-			if (callback) callback(null, name);
+			//if (callback) callback(null, name);
 		}
 	});
 });

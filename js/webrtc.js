@@ -31,7 +31,7 @@ var logger = {
     error: function (){}
 };
 
-var SIGNAL_URL = "https://shuteye.co/s"
+var SIGNAL_URL = "https://shuteye.co"
 
 // normalize environment
 var RTCPeerConnection = null,

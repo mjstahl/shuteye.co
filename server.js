@@ -20,7 +20,7 @@ app.get('/buy', function(req, res) {
 });
 
 app.get('/h', function(req, res) {
-	res.redirect('/h/' + random_sha1());
+	res.redirect('/h/' + randomSHA1());
 });
 
 app.get('/h/:id', function(req, res) {
@@ -74,7 +74,7 @@ io.sockets.on('connection', function(client) {
 });
 
 // Utility Functions
-function random_sha1() {
+function randomSHA1() {
 	var seed = crypto.randomBytes(20);
 	return crypto.createHash('sha1').update(seed).digest('hex');
 }

@@ -340,7 +340,7 @@ WebRTC.prototype.getLocalVideoContainer = function () {
         return el;
     } else {
         var video = document.createElement('video');
-        video.setAttribute('muted', true);
+        video.muted = true;
         el.appendChild(video);
         return video;
     }

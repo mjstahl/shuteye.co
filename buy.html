@@ -29,39 +29,41 @@
 			<form id="payment-form" method="GET">
 				<fieldset>
 					<!-- <label>Sessions</label> -->
-					<select id="session-count">
-						<option selected="selected" value="0"># of Sessions</option>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-						<option>9</option>
-						<option>10</option>
-						<option>11</option>
-						<option>12</option>
-						<option>13</option>
-						<option>14</option>
-						<option>15</option>
-						<option>16</option>
-						<option>17</option>
-						<option>18</option>
-						<option>19</option>
-						<option>20</option>
-						<option>21</option>
-						<option>22</option>
-						<option>23</option>
-						<option>24</option>
-						<option>25</option>
-						<option>26</option>
-						<option>27</option>
-						<option>28</option>
-						<option>29</option>
-						<option>30</option>
+					<select id="session-count" required>
+						<option value="1">1 Session</option>
+						<option value="2">2 Sessions</option>
+						<option value="3">3 Sessions</option>
+						<option value="4">4 Sessions</option>
+						<option value="5" selected="selected">5 Sessions</option>
+						<option value="6">6 Sessions</option>
+						<option value="7">7 Sessions</option>
+						<option value="8">8 Sessions</option>
+						<option value="9">9 Sessions</option>
+						<option value="10">10 Sessions</option>
+						<option value="11">11 Sessions</option>
+						<option value="12">12 Sessions</option>
+						<option value="13">13 Sessions</option>
+						<option value="14">14 Sessions</option>
+						<option value="15">15 Sessions</option>
+						<option value="16">16 Sessions</option>
+						<option value="17">17 Sessions</option>
+						<option value="18">18 Sessions</option>
+						<option value="19">19 Sessions</option>
+						<option value="20">20 Sessions</option>
+						<option value="21">21 Sessions</option>
+						<option value="22">22 Sessions</option>
+						<option value="23">23 Sessions</option>
+						<option value="24">24 Sessions</option>
+						<option value="25">25 Sessions</option>
+						<option value="26">26 Sessions</option>
+						<option value="27">27 Sessions</option>
+						<option value="28">28 Sessions</option>
+						<option value="29">29 Sessions</option>
+						<option value="30">30 Sessions</option>
 					</select>
+					<span class="inform help-block">
+						$1 Per Session, 2 Participants, No Time Limit
+					</span>
 					<input id="email" type="email" placeholder="Email Address" required>
 					<input id="password" type="password" placeholder="Password" required>
 					<span class="help-inline">
@@ -82,7 +84,7 @@
 						<input type="hidden" id="cc-year" data-stripe="exp-year">
 						<input type="text" id="cc-cvc" placeholder="CVC" data-stripe="cvc">
 					</div>
-					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $0.00">
+					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $5.00">
 				</fieldset>
 			</form>
 		</div>

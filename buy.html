@@ -4,7 +4,7 @@
 	<meta charset=utf-8 />
 	<title>Shuteye.co - Video Without Monitors</title>
 	<link rel="icon" type="image/png" href="/img/favicon.png" />
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.css" >
 	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
 	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="css/forms.css" type="text/css">
@@ -26,8 +26,8 @@
 	</div>
 	<div class="row-fluid">
 		<div class="offset3 span6">
-			<form id="payment-form">
-				<span class="payment-errors"></span>
+			<form id="payment-form" method="POST">
+				<strong id="payment-errors"></strong>
 				<fieldset>
 					<!-- <label>Sessions</label> -->
 					<select id="session-count">
@@ -78,17 +78,22 @@
 						Visa, Mastercard, Discover, American Express, Diner's Club
 					</span>
 					<div class="input-prepend">
-						<input type="text" id="cc-exp" placeholder="MM / YYYY" data-stripe="exp-month">
+						<input type="text" id="cc-exp" placeholder="MM / YYYY">
+						<input type="hidden" id="cc-month" data-stripe="exp-month">
+						<input type="hidden" id="cc-year" data-stripe="exp-year">
 						<input type="text" id="cc-cvc" placeholder="CVC" data-stripe="cvc">
 					</div>
 					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $0.00">
-<!-- 					<buttton type="submit" id="submit-purchase" class="btn btn-large btn-success">Pay $0.00</buttton> -->
 				</fieldset>
 			</form>
 		</div>
 	</div>
 	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
 	<script src="js/jquery.payment.js" type="text/javascript"></script>
 	<script src="js/forms.js" type="text/javascript"></script>
+	<script>
+		Stripe.setPublishableKey('pk_test_czwzkTp2tactuLOEOqbMTRzG');
+	</script>
 </body>
 </html>

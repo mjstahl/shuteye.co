@@ -1,5 +1,5 @@
 User-agent: *
-Allow:		/index.html
-Allow:		/faq.html
+Allow:		/index
+Allow:		/faq
 Disallow:	/buy.html
 Disallow:	/host.html

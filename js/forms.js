@@ -1,6 +1,23 @@
-$('#session-count').change(function() {
+$('input#cc-num').payment('formatCardNumber');
+$('input#cc-exp').payment('formatCardExpiry');
+$('input#cc-cvc').payment('formatCardCVC');
+
+$('select#session-count').change(function() {
 	var count = $('#session-count').val();
-	$('#price').text('Pay $' + count + ".00");
+	$('#submit-purchase').text('Pay $' + count + ".00");
+});
+
+$('form').submit(function(e) {
+	e.preventDefault();
+	$('input').removeClass('invalid');
+
+	var cardType = $.payment.cardType($('.cc-num').val());
+	$('.cc-num').toggleClass('invalid', 
+		!$.payment.validateCardNumber($('.cc-num').val()));
+    $('.cc-exp').toggleClass('invalid', 
+    	!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+    $('.cc-cvc').toggleClass('invalid', 
+    	!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
 });
 
 function togglePassword() {

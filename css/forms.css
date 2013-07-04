@@ -5,7 +5,7 @@ form {
 form select {
 	height: 45px;
 	font-size: 20px;
-	color: #777777;
+	color: #999999;
 	width: 416px;
 }
 
@@ -17,8 +17,12 @@ form input {
 }
 
 .input-prepend input {
-	width: 116px;
+	width: 186px;
 	margin-right: 12px;
+}
+
+#cc-exp {
+	width: 186px;
 }
 
 .no-decor {
@@ -29,16 +33,19 @@ form input {
 	color: #e2757f;
 }
 
-#do-not-lose {
-	color: #e2757f;
+input.invalid {
+	border-color: #e2757f;
+	border-width: 2px;
 }
 
-.button {
+.inform {
+	color: #6574c3;
+}
+
+#submit-purchase {
 	margin-top: 10px;
-}
-
-#price {
+	width: 175px;
 	font-size: 30px;
 	line-height: 30px;
-	margin-left: 120px;
+	margin-left: 100px;
 }

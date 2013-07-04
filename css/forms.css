@@ -21,10 +21,6 @@ form input {
 	margin-right: 12px;
 }
 
-#cc-exp {
-	width: 186px;
-}
-
 .no-decor {
 	text-decoration: none !important;
 }
@@ -39,6 +35,7 @@ input.invalid {
 }
 
 .inform {
+	margin-bottom: 5px;
 	color: #6574c3;
 }
 

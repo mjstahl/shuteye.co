@@ -4,20 +4,20 @@ $('input#cc-cvc').payment('formatCardCVC');
 
 $('select#session-count').change(function() {
 	var count = $('#session-count').val();
-	$('#submit-purchase').text('Pay $' + count + ".00");
+	$('#submit-purchase').attr('value', 'Pay $' + count + ".00");
 });
 
 $('form').submit(function(e) {
 	e.preventDefault();
 	$('input').removeClass('invalid');
 
-	var cardType = $.payment.cardType($('.cc-num').val());
-	$('.cc-num').toggleClass('invalid', 
-		!$.payment.validateCardNumber($('.cc-num').val()));
-    $('.cc-exp').toggleClass('invalid', 
-    	!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
-    $('.cc-cvc').toggleClass('invalid', 
-    	!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+	var cardType = $.payment.cardType($('#cc-num').val());
+	$('#cc-num').toggleClass('invalid', 
+		!$.payment.validateCardNumber($('#cc-num').val()));
+    $('#cc-exp').toggleClass('invalid', 
+    	!$.payment.validateCardExpiry($('#cc-exp').payment('cardExpiryVal')));
+    $('#cc-cvc').toggleClass('invalid', 
+    	!$.payment.validateCardCVC($('#cc-cvc').val(), cardType));
 });
 
 function togglePassword() {

@@ -34,6 +34,11 @@ input.invalid {
 	border-width: 2px;
 }
 
+input:focus.invalid {
+	border-color: #e2757f;
+	border-width: 2px;
+}
+
 .inform {
 	margin-bottom: 5px;
 	color: #6574c3;
@@ -42,7 +47,6 @@ input.invalid {
 #submit-purchase {
 	margin-top: 10px;
 	width: 175px;
-	font-size: 30px;
-	line-height: 30px;
-	margin-left: 100px;
+	line-height: 20px;
+	margin-left: 120px;
 }

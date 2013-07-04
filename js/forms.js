@@ -36,10 +36,6 @@ $('#payment-form').submit(function(e) {
 var formRespHandler = function(status, resp) {
 	var $form = $('#payment-form');
 	if (resp.error) {
-		$form.find('#payment-errors')
-			 .attr('class', 'span6 alert alert-error')
-			 .text(resp.error.message);
-
 		$('#submit-purchase').prop('disabled', false);
 	} else {
 		var token = resp.id;

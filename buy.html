@@ -27,7 +27,6 @@
 	<div class="row-fluid">
 		<div class="offset3 span6">
 			<form id="payment-form" method="POST">
-				<strong id="payment-errors"></strong>
 				<fieldset>
 					<!-- <label>Sessions</label> -->
 					<select id="session-count">
@@ -63,8 +62,8 @@
 						<option>29</option>
 						<option>30</option>
 					</select>
-					<input id="email" type="text" placeholder="Email Address">
-					<input id="password" type="password" placeholder="Password">
+					<input id="email" type="email" placeholder="Email Address" required>
+					<input id="password" type="password" placeholder="Password" required>
 					<span class="help-inline">
 						<a class="no-decor" href="javascript:togglePassword();">
 							<i id="show-password" class="icon-eye-close icon-3x"></i>

@@ -17,7 +17,7 @@ form input {
 }
 
 .input-prepend input {
-	width: 188px;
+	width: 116px;
 	margin-right: 12px;
 }
 
@@ -31,6 +31,10 @@ form input {
 
 #do-not-lose {
 	color: #e2757f;
+}
+
+.button {
+	margin-top: 10px;
 }
 
 #price {

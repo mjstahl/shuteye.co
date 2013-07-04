@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="/css/shuteye.css" type="text/css">
 	<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="/css/forms.css" type="text/css">
+	<style>
+	</style>
 </head>
 <body>
 	<div class="navbar">
@@ -75,11 +77,13 @@
 					</span>
 					<input type="text" placeholder="Credit Card #" data-stripe="number">
 					<div class="input-prepend">
-						<input type="text" placeholder="Exp. Month (MM)" data-stripe="exp-month">
-						<input type="text" placeholder="Exp. Year (YYYY)" data-stripe="exp-year">
+						<input type="text" placeholder="MM" data-stripe="exp-month">
+						<input type="text" placeholder="YYYY" data-stripe="exp-year">
+						<input type="text" placeholder="CVC" data-stripe="cvc">
 					</div>
-					<input type="text" placeholder="Card Code (CVC)" data-stripe="cvc">
-					<buttton id="price" type="submit" class="btn btn-large btn-success">Pay $0.00</buttton>
+					<div class="button">	
+						<buttton id="price" type="submit" class="btn btn-large btn-success">Pay $0.00</buttton>
+					</div>
 				</fieldset>
 			</form>
 		</div>

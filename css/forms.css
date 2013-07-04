@@ -1,0 +1,40 @@
+form {
+	margin-top: 30px;
+}
+
+form select {
+	height: 45px;
+	font-size: 20px;
+	color: #777777;
+	width: 416px;
+}
+
+form input {
+	height: 45px !important;
+	font-size: 20px !important;
+	width: 400px;
+	margin-top: 12px;
+}
+
+.input-prepend input {
+	width: 188px;
+	margin-right: 12px;
+}
+
+.no-decor {
+	text-decoration: none !important;
+}
+
+#hide-password {
+	color: #e2757f;
+}
+
+#do-not-lose {
+	color: #e2757f;
+}
+
+#price {
+	font-size: 30px;
+	line-height: 30px;
+	margin-left: 120px;
+}

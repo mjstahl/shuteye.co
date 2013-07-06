@@ -3,7 +3,7 @@
 <head>
 	<meta charset=utf-8 />
 	<title>Shuteye.co - Video Without Monitors</title>
-	<link rel="icon" type="image/png" href="/img/favicon.png" />
+	<link rel="icon" type="image/png" href="img/favicon.png" />
 	<link rel="stylesheet" href="css/bootstrap.css" >
 	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
 	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -28,18 +28,17 @@
 		<div class="offset3 span6">
 			<form id="payment-form" method="GET">
 				<fieldset>
-					<!-- <label>Sessions</label> -->
 					<select id="session-count" required>
 						<option value="1">1 Session</option>
 						<option value="2">2 Sessions</option>
 						<option value="3">3 Sessions</option>
 						<option value="4">4 Sessions</option>
-						<option value="5" selected="selected">5 Sessions</option>
+						<option value="5">5 Sessions</option>
 						<option value="6">6 Sessions</option>
 						<option value="7">7 Sessions</option>
 						<option value="8">8 Sessions</option>
 						<option value="9">9 Sessions</option>
-						<option value="10">10 Sessions</option>
+						<option value="10"  selected="selected">10 Sessions</option>
 						<option value="11">11 Sessions</option>
 						<option value="12">12 Sessions</option>
 						<option value="13">13 Sessions</option>
@@ -84,7 +83,7 @@
 						<input type="hidden" id="cc-year" data-stripe="exp-year">
 						<input type="text" id="cc-cvc" placeholder="CVC" data-stripe="cvc">
 					</div>
-					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $5.00">
+					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $10.00">
 				</fieldset>
 			</form>
 		</div>
@@ -93,6 +92,7 @@
 	<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
 	<script src="js/jquery.payment.js" type="text/javascript"></script>
 	<script src="js/forms.js" type="text/javascript"></script>
+	<script src="js/ui.js" type="text/javascript"></script>
 	<script>
 		Stripe.setPublishableKey('pk_test_czwzkTp2tactuLOEOqbMTRzG');
 	</script>

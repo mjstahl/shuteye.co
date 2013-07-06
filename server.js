@@ -19,16 +19,20 @@ app.get('/buy', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
+app.get('/j', function(req, res) {
+	res.sendfile(__dirname + '/join.html');
+});
+
 app.get('/h', function(req, res) {
 	res.redirect('/h/' + randomSHA1());
 });
 
 app.get('/h/:id', function(req, res) {
-	res.sendfile(__dirname + '/host.html');
+	res.sendfile(__dirname + '/pwd.html');
 });
 
-app.get('/j', function(req, res) {
-	res.sendfile(__dirname + '/join.html');
+app.post('/h/:id', function(req, res) {
+	res.sendfile(__dirname + '/host.html')
 });
 
 

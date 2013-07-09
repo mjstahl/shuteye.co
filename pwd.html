@@ -40,6 +40,17 @@
 		</div>
 	</div>
 	<script src="/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-	<script src="/js/forms.js" type="text/javascript"></script>
+	<script>
+		var togglePassword = function () {
+		var show = $('i#show-password');
+			if (show.length > 0) {
+				show.attr('id', 'hide-password').attr('class', 'icon-eye-open icon-3x');
+				$('input#password').attr('type', 'text');
+			} else {
+				$('i#hide-password').attr('id', 'show-password').attr('class', 'icon-eye-close icon-3x');
+				$('input#password').attr('type', 'password');
+			}
+		}
+	</script>
 </body>
 </html>

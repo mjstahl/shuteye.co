@@ -1,5 +1,9 @@
 #!/usr/bin/nodejs
 
+// Written by Mark Stahl
+// Copyright © 2013 Mark Stahl.
+// Released under the terms of the AGPL (/legal/AGPL)
+
 var app = require('express')(),
 	crypto = require('crypto'),
 	io 	= require('socket.io').listen(app.listen(8001));
@@ -35,6 +39,17 @@ app.post('/h/:id', function(req, res) {
 	res.sendfile(__dirname + '/host.html')
 });
 
+// Utility Functions
+function randomSHA1() {
+	var seed = crypto.randomBytes(20);
+	return crypto.createHash('sha1').update(seed).digest('hex');
+}
+
+// https://github.com/andyet/signalmaster
+//
+// Written by Henrik Joreteg.
+// Copyright © 2013 by &yet, LLC.
+// Released under the terms of the MIT License (/legal/MIT)
 
 // Socket IO Events
 io.sockets.on('connection', function(client) {
@@ -76,9 +91,3 @@ io.sockets.on('connection', function(client) {
 			client.join(name);
 	});
 });
-
-// Utility Functions
-function randomSHA1() {
-	var seed = crypto.randomBytes(20);
-	return crypto.createHash('sha1').update(seed).digest('hex');
-}

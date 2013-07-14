@@ -10,8 +10,8 @@ var app = require('express')(),
 
 app.enable('trust proxy');
 
-app.user(function(err, req, res, next) {
-	res.sendfile(__dirname + '/buy.html');
+app.use(function(err, req, res, next) {
+	res.redirect('/buy');
 });
 
 // HTTP Handlers

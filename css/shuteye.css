@@ -1,3 +1,7 @@
+.hide {
+  display: none;
+}
+
 .brand {
   height: 44px;
 }

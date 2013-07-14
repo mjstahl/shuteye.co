@@ -4,12 +4,14 @@
 	<meta charset=utf-8 />
 	<title>Shuteye.co - Video Without Monitors</title>
 	<link rel="icon" type="image/png" href="/img/favicon.png" /> 
-	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="/css/shuteye.css" type="text/css">
-	<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
-	<script src="/js/jquery-1.10.2.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="/js/webrtc.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+	<style type="text/css">
+		#browser-not-supported {
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<div class="navbar">
@@ -29,13 +31,34 @@
 			</form>
 		</div>
 	</div>
-		<div class="row-fluid">
-			<div class="span12 text-center">
-				<span id="local"></span>
-				<span id="remote"></span>
+	<div id="browser-not-supported" class="row-fluid hide">
+		<div class="offset3 span6">
+			<div class="alert alert-error">
+				<strong>SHUTEYE DOES NOT SUPPORT YOUR BROWSER</strong>
+				<br/>
+				Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
 			</div>
 		</div>
-	<script>
+	</div>
+	<div id="video" class="row-fluid">
+		<div class="span12 text-center">
+			<span id="local"></span>
+			<span id="remote"></span>
+		</div>
+	</div>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		if (navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
+			$('#browser-not-supported').toggleClass('hide', true);
+			$('#video').toggleClass('hide', false);
+		} else {
+			$('#browser-not-supported').toggleClass('hide', false);
+			$('#video').toggleClass('hide', true);
+		}
+	</script>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="js/webrtc.js"></script>
+	<script type="text/javascript">
 	var rtc = new WebRTC({
 		localVideoEl: 'local',
 		remoteVideosEl: 'remote',

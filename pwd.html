@@ -27,7 +27,12 @@
 	<div class="row-fluid">
 		<div class="offset3 span6">
 			<form id="pwd-form" method="POST">
-				<fieldset>
+				<div id="browser-not-supported" class="hide alert alert-error">
+					<strong>SHUTEYE DOES NOT SUPPORT YOUR BROWSER</strong>
+					<br/>
+					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
+				</div>
+				<fieldset id="enter-password">
 					<input id="password" type="password" placeholder="Session Password" required>
 					<span class="help-inline">
 						<a class="no-decor" href="javascript:togglePassword();">
@@ -50,6 +55,15 @@
 				$('i#hide-password').attr('id', 'show-password').attr('class', 'icon-eye-close icon-3x');
 				$('input#password').attr('type', 'password');
 			}
+		}
+	</script>
+	<script type="text/javascript">
+		if (navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
+			$('#browser-not-supported').toggleClass('hide', true);
+			$('#enter-password').toggleClass('hide', false);
+		} else {
+			$('#browser-not-supported').toggleClass('hide', false);
+			$('#enter-password').toggleClass('hide', true);
 		}
 	</script>
 </body>

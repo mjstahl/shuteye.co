@@ -10,11 +10,6 @@ var app = require('express')(),
 
 app.enable('trust proxy');
 
-app.use(app.router);
-app.use(function(err, req, res, next) {
-	res.redirect('/buy');
-});
-
 // HTTP Handlers
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + '/index.html');
@@ -42,6 +37,10 @@ app.get('/h/:id', function(req, res) {
 
 app.post('/h/:id', function(req, res) {
 	res.sendfile(__dirname + '/host.html')
+});
+
+app.all('*', function(req, res) {
+	res.redirect('/buy');
 });
 
 // Utility Functions

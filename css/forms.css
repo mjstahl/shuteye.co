@@ -34,10 +34,6 @@ form input {
 	text-decoration: none !important;
 }
 
-.show-hide-pwd {
-	margin-left: -60px;
-}
-
 #hide-password, .warn {
 	color: #e2757f;
 }

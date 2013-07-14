@@ -132,3 +132,7 @@ video {
   position: absolute;
   text-align: left;
 }
+
+.show-hide-pwd {
+  margin-left: -60px;
+}

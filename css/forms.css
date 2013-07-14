@@ -33,7 +33,7 @@ form input {
 	text-decoration: none !important;
 }
 
-#hide-password {
+#hide-password, .warn {
 	color: #e2757f;
 }
 

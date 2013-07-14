@@ -10,6 +10,7 @@ var app = require('express')(),
 
 app.enable('trust proxy');
 
+app.use(app.router);
 app.use(function(err, req, res, next) {
 	res.redirect('/buy');
 });

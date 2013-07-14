@@ -10,6 +10,10 @@ var app = require('express')(),
 
 app.enable('trust proxy');
 
+app.user(function(err, req, res, next) {
+	res.sendfile(__dirname + '/buy.html');
+});
+
 // HTTP Handlers
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + '/index.html');

@@ -24,19 +24,14 @@
 			</ul>
 		</div>
 	</div>
-<!-- 	<div id="browsers" class="row-fluid">
-		<div class="offset5 span6">
-			<a href="https://www.google.com/intl/en/chrome/browser/">
-				<img src="img/chrome.png">
-			</a>
-			<a href="https://www.mozilla.org/">
-				<img src="img/firefox.png">
-			</a>
-		</div>
-	</div> -->
 	<div class="row-fluid">
 		<div class="offset3 span6">
 			<form id="payment-form" method="GET">
+				<div id="browser-not-supported" class="hide alert alert-error">
+					<strong>SHUTEYE DOES NOT SUPPORT YOUR BROWSER</strong>
+					<br/>
+					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
+				</div>
 				<fieldset>
 					<select id="session-count" required>
 						<option value="1">1 Session</option>
@@ -80,7 +75,7 @@
 							<i id="show-password" class="icon-eye-close icon-3x"></i>
 						</a>
 					</span>
-					<span class="help-block warn" class="help-block">
+					<span class="help-block inform" class="help-block">
 						DO NOT LOSE YOUR PASSWORD. It cannot be retrieved if lost.	
 					</span>
 					<input type="text" class="" id="cc-num" placeholder="Credit Card #" data-stripe="number">
@@ -104,6 +99,11 @@
 	<script src="js/forms.js" type="text/javascript"></script>
 	<script>
 		Stripe.setPublishableKey('pk_test_czwzkTp2tactuLOEOqbMTRzG');
+		if (navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
+			$('#browser-not-supported').toggleClass('hide', true);
+		} else {
+			$('#browser-not-supported').toggleClass('hide', false);
+		}
 	</script>
 </body>
 </html>

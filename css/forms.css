@@ -6,6 +6,14 @@ strong#payment-errors {
 	width: 415px !important;
 }
 
+#browsers {
+	margin-left: -15px;
+}
+
+#browsers img {
+	margin-right: 20px;
+}
+
 form select {
 	height: 45px;
 	font-size: 20px;
@@ -31,6 +39,10 @@ form input {
 
 .no-decor {
 	text-decoration: none !important;
+}
+
+.show-hide-pwd {
+	margin-left: -60px;
 }
 
 #hide-password, .warn {

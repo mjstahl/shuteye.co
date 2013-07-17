@@ -104,8 +104,14 @@ footer {
 }
 
 video {
-  width: 85%;
+  width: 95%;
   height: auto;
+}
+
+#local video {
+  max-width: 200px;
+  border-right: solid 3px #fafafa;
+  border-bottom: solid 3px #fafafa;
 }
 
 .pip {

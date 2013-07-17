@@ -4,13 +4,10 @@
 	<meta charset=utf-8 />
 	<title>Shuteye.co - Video Without Monitors</title>
 	<link rel="icon" type="image/png" href="/img/favicon.png" /> 
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="css/shuteye.css" type="text/css">
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/css/shuteye.css" type="text/css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
 	<style type="text/css">
-		#browser-not-supported {
-			text-align: center;
-		}
 	</style>
 </head>
 <body>
@@ -40,13 +37,16 @@
 			</div>
 		</div>
 	</div>
-	<div id="video" class="row-fluid">
+	<div class="row-fluid">
 		<div class="span12 text-center">
 			<span id="local"></span>
 			<span id="remote"></span>
 		</div>
 	</div>
-	<script src="js/jquery-1.10.2.min.js"></script>
+	<div class="navbar navbar-bottom">
+		<div id="others"></div>
+	</div>
+	<script src="/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		if (navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
 			$('#browser-not-supported').toggleClass('hide', true);
@@ -56,8 +56,8 @@
 			$('#video').toggleClass('hide', true);
 		}
 	</script>
-	<script src="socket.io/socket.io.js"></script>
-	<script src="js/webrtc.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/webrtc.js"></script>
 	<script type="text/javascript">
 	var rtc = new WebRTC({
 		localVideoEl: 'local',

@@ -328,7 +328,11 @@ WebRTC.prototype.getLocalVideoContainer = function () {
 };
 
 WebRTC.prototype.getRemoteVideoContainer = function () {
-    return this.getEl(this.config.remoteVideosEl);
+    if (document.getElementById('remote').children.length) {
+        return document.getElementById('others');
+    } else {
+        return this.getEl(this.config.remoteVideosEl);
+    }  
 };
 
 WebRTC.prototype.startVideoCall = function (id) {
@@ -494,13 +498,16 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
         container = this.parent.getRemoteVideoContainer();
     el.id = this.id;
     attachMediaStream(el, stream);
-    if (container) container.appendChild(el);
+
+    if (container && container.getAttribute('id') != 'others') {
+        // TODO 'local' should not be called out directly
+        // if the name of the id of the container changes
+        // it will break the display
+        var local = document.getElementById('local');
+        local.setAttribute('class', 'pip');
+    }
     
-    // TODO 'local' should not be called out directly
-    // if the name of the id of the container changes
-    // it will break the display
-    var el = document.getElementById('local');
-    el.setAttribute('class', 'pip');
+    container.appendChild(el);
 };
 
 Conversation.prototype.handleStreamRemoved = function () {

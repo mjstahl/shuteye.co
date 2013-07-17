@@ -95,30 +95,12 @@ footer {
   margin-top: 60px;
 }
 
-.local {
-  position: absolute;
-  border-bottom: 2px solid #fafafa;
-  border-right: 2px solid #fafafa;
+.show-hide-pwd {
+  margin-left: -60px;
 }
 
-#attendees {
-  position: relative;
-  margin-top: -250px;
-  height: 150px;
-  clear: both;
-  padding-top: 20px;
-}
-
-.audio {
-  position: absolute; top: 0 left: 0;
-  padding-top: 5px;
-  padding-left: 7px;
-  font-size: 24px;
-  color: #777777;
-}
-
-.talking {
-  color: #74c365;
+#browser-not-supported {
+  text-align: center;
 }
 
 video {
@@ -133,6 +115,21 @@ video {
   text-align: left;
 }
 
-.show-hide-pwd {
-  margin-left: -60px;
+#others {
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+  white-space: nowrap;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+}
+
+#others video {
+  height: 175px;
+  video: 175px;
+  margin: 5px;
+  padding: 3px;
 }

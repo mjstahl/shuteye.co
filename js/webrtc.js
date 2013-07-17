@@ -528,8 +528,22 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
 
 Conversation.prototype.handleStreamRemoved = function () {
     var video = document.getElementById(this.id),
-        container = this.parent.getRemoteVideoContainer();
-    if (video && container) container.removeChild(video);
+        parent = video.parentNode,
+        others = document.getElementById('others'),
+        local = document.getElementById('local');
+    if (video && parent) {
+        parent.removeChild(video);
+        if (parent.id == 'remote') {
+            if (others.children.length > 0) {
+                var other = others.children[0];
+                remote.appendChild(other);
+                delete others.children[0];
+            } else {
+                local.removeAttribute('class');
+            }
+        }
+    }
+
     this.emit('videoRemoved', video);
     delete this.parent.pcs[this.id];
     this.closed = true;
@@ -537,8 +551,8 @@ Conversation.prototype.handleStreamRemoved = function () {
     // TODO 'local' should not be called out directly
     // if the name of the id of the container changes
     // it will break the display
-    var el = document.getElementById('local');
-    el.removeAttribute('class');
+    //var el = document.getElementById('local');
+    //el.removeAttribute('class');
 };
 
 // expose WebRTC

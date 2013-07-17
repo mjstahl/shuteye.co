@@ -537,6 +537,7 @@ Conversation.prototype.handleStreamRemoved = function () {
                 var other = others.children[0];
                 video.setAttribute('id', other.id);
                 video.setAttribute('src', other.src);
+                others.removeChild(other);
             } else {
                 local.removeAttribute('class');
             }

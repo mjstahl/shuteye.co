@@ -104,7 +104,7 @@ footer {
 }
 
 video {
-  width: 90%;
+  width: 85%;
   height: auto;
 }
 
@@ -121,7 +121,6 @@ video {
   white-space: nowrap;
 
   position: absolute;
-  bottom: 0;
   left: 0;
 }
 
@@ -129,5 +128,5 @@ video {
   width: auto;
   margin: 5px;
   padding: 3px;
-  height: 185px;
+  height: 150px;
 }

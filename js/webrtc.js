@@ -505,15 +505,15 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
     el.id = this.id;
     attachMediaStream(el, stream);
 
-    if (container && container.getAttribute('id') != 'others') {
-        // TODO 'local' should not be called out directly
-        // if the name of the id of the container changes
-        // it will break the display
-        var local = document.getElementById('local');
-        local.setAttribute('class', 'pip');
+    if (container) {
+        if (container.getAttribute('id') == 'remote') {
+            var local = document.getElementById('local');
+            local.setAttribute('class', 'pip');
 
-        this.registerVideoOnClick(el);
-        this.updateSessionButton();
+            this.updateSessionButton();
+        } else {
+            this.registerVideoOnClick(el);
+        }
     }
     
     container.appendChild(el);

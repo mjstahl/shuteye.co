@@ -510,7 +510,7 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
 
         var sessions = document.getElementById('sessions-left')
         if (sessions) {
-            var left = sessionsLeft.innerText - 1;
+            var left = sessions.innerText - 1;
             if (left == 0) {
                 sessions.innerText = left;
                 var buy = document.getElementById('buy')

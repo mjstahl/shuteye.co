@@ -512,18 +512,26 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
         var local = document.getElementById('local');
         local.setAttribute('class', 'pip');
 
-        var sessions = document.getElementById('sessions-left')
-        if (sessions) {
-            var left = sessions.innerText - 1;
-            sessions.innerText = (left < 0) ? 0 : left;
-            if (left == 0) {
-                var buy = document.getElementById('buy')
-                buy.setAttribute('class', 'btn btn-large btn-danger')
-            }
-        }
+        this.registerVideoOnClick(el);
+        this.updateSessionButton();
     }
     
     container.appendChild(el);
+};
+
+Conversation.prototype.registerVideoOnClick = function(video) {
+    video.addEventListener('click', function(el) {
+        var o_id = el.getAttribute('id'),
+            o_src = el.getAttribute('src'),
+            remote = document.getElementById('remote').children[0];
+            r_id = remote.getAttribute('id'),
+            r_src = remote.getAttribute('src');
+
+        remote.setAttribute('id', o_id);
+        remote.setAttribute('src', o_src);
+        el.setAttribute('id', r_id);
+        el.setAttribute('src', r_src);}
+    });
 };
 
 Conversation.prototype.handleStreamRemoved = function () {
@@ -548,6 +556,18 @@ Conversation.prototype.handleStreamRemoved = function () {
     this.emit('videoRemoved', video);
     delete this.parent.pcs[this.id];
     this.closed = true;
+};
+
+Conversation.prototype.updateSessionButton = function() {
+    var sessions = document.getElementById('sessions-left')
+    if (sessions) {
+        var left = sessions.innerText - 1;
+        sessions.innerText = (left < 0) ? 0 : left;
+        if (left == 0) {
+            var buy = document.getElementById('buy')
+            buy.setAttribute('class', 'btn btn-large btn-danger')
+        }
+    }
 };
 
 // expose WebRTC

@@ -515,7 +515,7 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
         var sessions = document.getElementById('sessions-left')
         if (sessions) {
             var left = sessions.innerText - 1;
-            sessions.innerText = left;
+            sessions.innerText = (left < 0) ? 0 : left;
             if (left == 0) {
                 var buy = document.getElementById('buy')
                 buy.setAttribute('class', 'btn btn-large btn-danger')

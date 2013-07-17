@@ -119,6 +119,9 @@ video {
   position: absolute;
   text-align: left;
   max-width: 200px;
+}
+
+.pip video {
   border-right: solid 3px #fafafa;
   border-bottom: solid 3px #fafafa;
 }

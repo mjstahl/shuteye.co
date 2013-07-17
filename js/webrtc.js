@@ -523,7 +523,7 @@ Conversation.prototype.registerVideoOnClick = function(video) {
     video.addEventListener('click', function(el) {
         var o_id = el.getAttribute('id'),
             o_src = el.getAttribute('src'),
-            remote = document.getElementById('remote').children[0];
+            remote = document.getElementById('remote').children[0],
             r_id = remote.getAttribute('id'),
             r_src = remote.getAttribute('src');
 

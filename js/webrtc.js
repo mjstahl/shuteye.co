@@ -507,6 +507,16 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
         // it will break the display
         var local = document.getElementById('local');
         local.setAttribute('class', 'pip');
+
+        var sessions = document.getElementById('sessions-left')
+        if (sessions) {
+            var left = sessionsLeft.innerText - 1;
+            if (left == 0) {
+                sessions.innerText = left;
+                var buy = document.getElementById('buy')
+                buy.setAttribute('class', 'btn btn-large btn-danger')
+            }
+        }
     }
     
     container.appendChild(el);

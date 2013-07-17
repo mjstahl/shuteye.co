@@ -1,6 +1,10 @@
+// Portions written by Mark Stahl
+// Copyright 2013
+// Released under the terms of the AGPL (/legal/AGPL)
+
 // https://github.com/HenrikJoreteg/SimpleWebRTC
 //
-// Written by Henrik Joreteg.
+// Portions written by Henrik Joreteg.
 // Copyright © 2013 by &yet, LLC.
 // Released under the terms of the MIT License (/legal/MIT)
 

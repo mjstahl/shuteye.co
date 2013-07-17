@@ -126,8 +126,7 @@ video {
 }
 
 #others video {
-  height: 175px;
-  width: 175px !important;
+  width: 20%;
   margin: 5px;
   padding: 3px;
 }

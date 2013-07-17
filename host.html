@@ -54,6 +54,18 @@
 	});
 
 	window.onbeforeunload = function() { rtc.leaveRoom(); }
+
+	$('others video').click(function(video) {
+		var id = video.attr('id'),
+		    src = video.attr('src'),
+		    remote = $('#remote > video');
+
+		video.attr('id', remote.attr('id'));
+		video.src('src', remote.attr('src'));
+
+		remote.attr('id', id);
+		remote.attr('src', src);
+	});
 	</script>
 </body>
 </html>

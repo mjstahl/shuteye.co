@@ -537,7 +537,7 @@ Conversation.prototype.handleStreamRemoved = function () {
             if (others.children.length > 0) {
                 var other = others.children[0];
                 remote.appendChild(other);
-                delete others.children[0];
+                others.removeChild(others.children[0]);
             } else {
                 local.removeAttribute('class');
             }
@@ -547,12 +547,6 @@ Conversation.prototype.handleStreamRemoved = function () {
     this.emit('videoRemoved', video);
     delete this.parent.pcs[this.id];
     this.closed = true;
-
-    // TODO 'local' should not be called out directly
-    // if the name of the id of the container changes
-    // it will break the display
-    //var el = document.getElementById('local');
-    //el.removeAttribute('class');
 };
 
 // expose WebRTC

@@ -537,7 +537,7 @@ Conversation.prototype.handleStreamRemoved = function () {
             if (others.children.length > 0) {
                 var other = others.children[0];
                 remote.appendChild(other);
-                others.removeChild(others.children[0]);
+                //others.removeChild(others.children[0]);
             } else {
                 local.removeAttribute('class');
             }

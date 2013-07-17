@@ -69,8 +69,10 @@ i {
   color: #777777;
 }
 
-.try-button {
-  margin-top: 60px; 
+.try-button button {
+  line-height: 36px;
+  font-size: 32px;
+  margin-bottom: 15px;
 }
 
 .try-text {
@@ -93,6 +95,10 @@ i {
 
 footer {
   margin-top: 60px;
+}
+
+.no-decor {
+  text-decoration: none !important;
 }
 
 .show-hide-pwd {

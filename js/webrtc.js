@@ -532,12 +532,11 @@ Conversation.prototype.handleStreamRemoved = function () {
         others = document.getElementById('others'),
         local = document.getElementById('local');
     if (video && parent) {
-        parent.removeChild(video);
         if (parent.id == 'remote') {
             if (others.children.length > 0) {
                 var other = others.children[0];
-                remote.appendChild(other);
-                //others.removeChild(others.children[0]);
+                video.setAttribute('id', other.id);
+                video.setAttribute('src', other.src);
             } else {
                 local.removeAttribute('class');
             }

@@ -316,11 +316,13 @@ WebRTC.prototype.getEl = function (idOrEl) {
 // and either the video tag itself or a container
 // that will be used to put the video tag into.
 WebRTC.prototype.getLocalVideoContainer = function () {
+    var self = this;
     var el = this.getEl(this.config.localVideoEl);
     if (el && el.tagName === 'VIDEO') {
         return el;
     } else {
         var video = document.createElement('video');
+        video.id = self.connection.socket.sessionid;
         video.muted = true;
         el.appendChild(video);
         return video;

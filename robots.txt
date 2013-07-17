@@ -1,5 +1,6 @@
 User-agent: *
 Allow:		/index
 Allow:		/faq
-Disallow:	/buy.html
-Disallow:	/host.html
+Allow:		/buy
+Disallow:	/h
+Disallow:	/j

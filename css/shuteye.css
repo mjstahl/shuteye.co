@@ -114,16 +114,13 @@ video {
   height: auto;
 }
 
-#local video {
-  max-width: 200px;
-  border-right: solid 3px #fafafa;
-  border-bottom: solid 3px #fafafa;
-}
-
 .pip {
   width: 20%;
   position: absolute;
   text-align: left;
+  max-width: 200px;
+  border-right: solid 3px #fafafa;
+  border-bottom: solid 3px #fafafa;
 }
 
 #others {

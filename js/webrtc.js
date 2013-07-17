@@ -530,7 +530,7 @@ Conversation.prototype.registerVideoOnClick = function(video) {
         remote.setAttribute('id', o_id);
         remote.setAttribute('src', o_src);
         el.setAttribute('id', r_id);
-        el.setAttribute('src', r_src);}
+        el.setAttribute('src', r_src);
     });
 };
 

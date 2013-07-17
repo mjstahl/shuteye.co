@@ -532,7 +532,6 @@ Conversation.prototype.handleStreamRemoved = function () {
         others = document.getElementById('others'),
         local = document.getElementById('local');
     if (video && parent) {
-        parent.removeChild(video);
         if (parent.id == 'remote') {
             if (others.children.length > 0) {
                 var other = others.children[0];
@@ -540,6 +539,7 @@ Conversation.prototype.handleStreamRemoved = function () {
                 video.setAttribute('src', other.src);
                 others.removeChild(other);
             } else {
+                parent.removeChild(video);
                 local.removeAttribute('class');
             }
         }

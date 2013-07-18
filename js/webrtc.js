@@ -551,6 +551,8 @@ Conversation.prototype.handleStreamRemoved = function () {
                 parent.removeChild(video);
                 local.removeAttribute('class');
             }
+        } else {
+            others.removeChild(video);
         }
     }
 

@@ -141,4 +141,5 @@ video {
   margin: 5px;
   padding: 3px;
   height: 150px;
+  cursor: pointer;
 }

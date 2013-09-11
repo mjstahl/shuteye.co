@@ -33,7 +33,7 @@
 					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
 				</div>
 				<fieldset>
-					<select id="session-count" required>
+					<select name="session-count" id="session-count">
 						<option value="1">1 Session</option>
 						<option value="2">2 Sessions</option>
 						<option value="3">3 Sessions</option>
@@ -68,8 +68,8 @@
 					<span class="inform help-block">
 						$1 Per Session, Unlimited Attendees, No Time Limit
 					</span>
-					<input id="email" type="email" placeholder="Email Address" required>
-					<input id="password" type="password" placeholder="Password" required>
+					<input name="email" id="email" type="email" placeholder="Email Address" required>
+					<input name="password" id="password" type="password" placeholder="Password" required>
 					<span class="help-inline show-hide-pwd">
 						<a class="no-decor" href="javascript:togglePassword();">
 							<i id="show-password" class="icon-eye-close icon-3x"></i>

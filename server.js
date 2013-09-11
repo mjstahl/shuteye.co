@@ -4,10 +4,18 @@
 // Copyright © 2013 Mark Stahl.
 // Released under the terms of the AGPL (/legal/AGPL)
 
-var app = require('express')(),
+var express = require('express'),
+	app = express(),
 	crypto = require('crypto'),
+	bcrypt = require('bcrypt'),
+	sqlite = require('sqlite3'),
+	mustache = require('mustache'),
+	fs = require('fs'),
 	io 	= require('socket.io').listen(app.listen(8001));
 
+var db = new sqlite.cached.Database("./shuteye.db");
+
+app.use(express.bodyParser());
 app.enable('trust proxy');
 
 // HTTP Handlers
@@ -23,35 +31,74 @@ app.get('/buy', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
-app.get('/j', function(req, res) {
+app.get('/h/:id', function(req, res) {
+	var FIND_SESSION = 'SELECT * FROM shuteye WHERE host_id = ?';
+	
+	var stmt = db.prepare(FIND_SESSION);
+	stmt.get(req.params.id, function(err, row) {
+		if (row == undefined) {
+			res.redirect('/buy');
+		} else {
+			res.sendfile(__dirname + '/pwd.html');
+		}
+	});
+});
+
+app.get('/j/:id', function(req, res) {
 	res.sendfile(__dirname + '/join.html');
 });
 
-app.get('/h', function(req, res) {
-	res.redirect('/h/' + randomSHA1());
-});
-
-app.get('/h/:id', function(req, res) {
-	res.sendfile(__dirname + '/pwd.html');
-});
-
 app.post('/purchase', function(req, res) {
-	res.redirect('/h/' + randomSHA1());
+	var count = req.body['session-count'],
+		email = req.body['email'],
+		password = req.body['password'],
+		token = req.body['purchaseToken'];
+
+	// process transaction with Stripe using 'token'
+	// on success continue
+
+	var hash = bcrypt.hashSync(password, 10),
+		hostID = randomSHA1(),
+		attendeeID = randomSHA1();
+
+	var NEW_PURCHASE = 'INSERT INTO shuteye VALUES (?, ?, ?, ?, ?);';
+	var stmt = db.prepare(NEW_PURCHASE);
+	stmt.run(hostID, attendeeID, hash, count, "");
+	stmt.finalize();
+
+	res.redirect('/h/' + hostID);
 });
 
 app.post('/h/:id', function(req, res) {
-	res.sendfile(__dirname + '/host.html')
+	var FIND_SESSION = 'SELECT password FROM shuteye WHERE host_id = ?';
+	
+	var find = db.prepare(FIND_SESSION);
+	find.get(req.params.id, function(err, row) {
+		if (row == undefined) {
+			res.redirect('/buy');
+		} else {
+			if (!bcrypt.compareSync(req.body.password, row.password)) {
+				res.redirect('/h/' + req.params.id);
+			} else {
+				var INSERT_INSTANCE = 'UPDATE shuteye SET session_id = ? WHERE host_id = ?';
+				
+				var insert = db.prepare(INSERT_INSTANCE);
+				var sessionID = randomSHA1();
+				insert.run(sessionID, req.params.id); 
+
+				var page = fs.readFileSync('host.html', 'utf8');
+				var data = { roomName : sessionID };
+				var html = mustache.to_html(page, data);
+				
+				res.send(html);
+			}
+		}
+	});
 });
 
 app.all('*', function(req, res) {
 	res.redirect('/buy');
 });
-
-// Utility Functions
-function randomSHA1() {
-	var seed = crypto.randomBytes(20);
-	return crypto.createHash('sha1').update(seed).digest('hex');
-}
 
 // https://github.com/andyet/signalmaster
 //
@@ -99,3 +146,9 @@ io.sockets.on('connection', function(client) {
 			client.join(name);
 	});
 });
+
+// Utility Functions
+function randomSHA1() {
+	var seed = crypto.randomBytes(20);
+	return crypto.createHash('sha1').update(seed).digest('hex');
+}

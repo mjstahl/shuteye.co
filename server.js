@@ -35,6 +35,10 @@ app.get('/h/:id', function(req, res) {
 	res.sendfile(__dirname + '/pwd.html');
 });
 
+app.post('/purchase', function(req, res) {
+	res.sendfile(__dirname + '/pwd.html');
+});
+
 app.post('/h/:id', function(req, res) {
 	res.sendfile(__dirname + '/host.html')
 });

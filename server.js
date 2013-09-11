@@ -58,19 +58,20 @@ app.post('/purchase', function(req, res) {
 	// on success continue
 
 	var hash = bcrypt.hashSync(password, 10),
-		hostID = randomSHA1(),
-		attendeeID = randomSHA1();
+		host = randomSHA1(),
+		attendee = randomSHA1();
+		session = randomSHA1();
 
 	var NEW_PURCHASE = 'INSERT INTO shuteye VALUES (?, ?, ?, ?, ?);';
 	var stmt = db.prepare(NEW_PURCHASE);
-	stmt.run(hostID, attendeeID, hash, count, "");
+	stmt.run(host, attendee, hash, count, session);
 	stmt.finalize();
 
-	res.redirect('/h/' + hostID);
+	res.redirect('/h/' + host);
 });
 
 app.post('/h/:id', function(req, res) {
-	var FIND_SESSION = 'SELECT password FROM shuteye WHERE host_id = ?';
+	var FIND_SESSION = 'SELECT password, session_id FROM shuteye WHERE host_id = ?';
 	
 	var find = db.prepare(FIND_SESSION);
 	find.get(req.params.id, function(err, row) {
@@ -80,16 +81,9 @@ app.post('/h/:id', function(req, res) {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
 				res.redirect('/h/' + req.params.id);
 			} else {
-				var INSERT_INSTANCE = 'UPDATE shuteye SET session_id = ? WHERE host_id = ?';
-				
-				var insert = db.prepare(INSERT_INSTANCE);
-				var sessionID = randomSHA1();
-				insert.run(sessionID, req.params.id); 
-
 				var page = fs.readFileSync('host.html', 'utf8');
-				var data = { roomName : sessionID };
+				var data = { roomName : row.session_id };
 				var html = mustache.to_html(page, data);
-				
 				res.send(html);
 			}
 		}

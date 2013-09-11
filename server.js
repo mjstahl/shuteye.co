@@ -36,7 +36,7 @@ app.get('/h/:id', function(req, res) {
 });
 
 app.post('/purchase', function(req, res) {
-	res.sendfile(__dirname + '/pwd.html');
+	res.redirect('/h/' + randomSHA1());
 });
 
 app.post('/h/:id', function(req, res) {

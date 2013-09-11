@@ -32,9 +32,8 @@ app.get('/buy', function(req, res) {
 });
 
 app.get('/h/:id', function(req, res) {
-	var FIND_SESSION = 'SELECT * FROM shuteye WHERE host_id = ?';
-	
-	var stmt = db.prepare(FIND_SESSION);
+	var VERIFY_HOST = 'SELECT * FROM shuteye WHERE host_id = ?';
+	var stmt = db.prepare(VERIFY_HOST);
 	stmt.get(req.params.id, function(err, row) {
 		if (row == undefined) {
 			res.redirect('/buy');
@@ -45,7 +44,18 @@ app.get('/h/:id', function(req, res) {
 });
 
 app.get('/j/:id', function(req, res) {
-	res.sendfile(__dirname + '/join.html');
+	var FIND_SESSION = 'SELECT session_id FROM shuteye WHERE attendee_id = ?';
+	var stmt = db.prepare(FIND_SESSION);
+	stmt.get(req.params.id, function(err, row) {
+		if (row == undefined) {
+			res.redirect('/buy');
+		} else {
+			var page = fs.readFileSync('join.html', 'utf8');
+			var data = { roomName : row.session_id };
+			var html = mustache.to_html(page, data);
+			res.send(html);
+		}
+	});
 });
 
 app.post('/purchase', function(req, res) {
@@ -71,9 +81,8 @@ app.post('/purchase', function(req, res) {
 });
 
 app.post('/h/:id', function(req, res) {
-	var FIND_SESSION = 'SELECT password, session_id FROM shuteye WHERE host_id = ?';
-	
-	var find = db.prepare(FIND_SESSION);
+	var VERIFY_HOST = 'SELECT password, session_id FROM shuteye WHERE host_id = ?';
+	var find = db.prepare(VERIFY_HOST);
 	find.get(req.params.id, function(err, row) {
 		if (row == undefined) {
 			res.redirect('/buy');

@@ -69,7 +69,7 @@ app.post('/purchase', function(req, res) {
 
 	var hash = bcrypt.hashSync(password, 10),
 		host = randomSHA1(),
-		attendee = randomSHA1();
+		attendee = randomSHA1(),
 		session = randomSHA1();
 
 	var NEW_PURCHASE = 'INSERT INTO shuteye VALUES (?, ?, ?, ?, ?);';

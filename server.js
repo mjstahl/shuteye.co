@@ -2,15 +2,21 @@
 
 // Written by Mark Stahl
 // Copyright © 2013 Mark Stahl.
-// Released under the terms of the AGPL (/legal/AGPL)
+// Released under the terms of the AGPLv3 (/legal/AGPL)
+
+var SENDGRID_USR = "";
+var SENDGRID_KEY = "";
+
+var sendgrid = require('sendgrid')(SENDGRID_USR, SENDGRID_KEY);
+
+var crypto = require('crypto'),
+	fs = require('fs');
 
 var express = require('express'),
 	app = express(),
-	crypto = require('crypto'),
 	bcrypt = require('bcrypt'),
 	sqlite = require('sqlite3'),
 	mustache = require('mustache'),
-	fs = require('fs'),
 	io 	= require('socket.io').listen(app.listen(8001));
 
 var db = new sqlite.cached.Database(__dirname + '/shuteye.db');
@@ -58,6 +64,11 @@ app.get('/j/:id', function(req, res) {
 	});
 });
 
+var EMAIL_TEMPLATE = fs.readFileSync(__dirname + '/email_template.txt', 'ascii');
+var HOST_URL = 'https://shuteye.co/h/';
+var JOIN_URL = 'https://shuteye.co/j/';
+var FROM_ADDR = 'mark@shuteye.co';
+
 app.post('/purchase', function(req, res) {
 	var count = req.body['session-count'],
 		email = req.body['email'],
@@ -76,6 +87,16 @@ app.post('/purchase', function(req, res) {
 	var stmt = db.prepare(NEW_PURCHASE);
 	stmt.run(host, attendee, hash, count, session);
 	stmt.finalize();
+
+	var data = { host_url : HOST_URL + '/h/' + host,
+				 join_url : JOIN_URL + '/j/' + attendee };
+	var text = mustache.render(EMAIL_TEMPLATE, data);
+	sendgrid.send({
+  		to: email,
+  		from: FROM_ADDR,
+  		subject: 'Welcome to Shuteye!',
+  		text: text
+	});
 
 	res.redirect('/h/' + host);
 });

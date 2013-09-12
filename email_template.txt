@@ -1,0 +1,29 @@
+Thank you for purchasing Shuteye.  Your privacy and security is very 
+important to me and your purchase tells me it's important to you, too.
+
+To start your video session you, as the host, open the following 
+hyperlink using Chrome or Firefox. Then you will be prompted to enter 
+the password you specified initially.
+
+{{&host_url}}
+
+For those users you wish to invite to join you, we have provided you 
+with an attendee hyperlink.  Just copy and paste the below text block 
+below in an email. Your invitees will follow the link to get started.
+
+=======================================================
+
+Copy and paste the following hyperlink in the address bar 
+of Chrome or Firefox.
+
+{{&join_url}}
+
+=======================================================
+
+If you or your attendees experience any problems with the service 
+please contact me. I would love to hear any feedback about your 
+experience.
+
+Mark Stahl
+mark@shuteye.co
+912-224-3303

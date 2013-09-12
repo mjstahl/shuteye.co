@@ -102,7 +102,7 @@ app.post('/purchase', function(req, res) {
 });
 
 app.post('/h/:id', function(req, res) {
-	var VERIFY_HOST = 'SELECT password, session_id FROM shuteye WHERE host_id = ?';
+	var VERIFY_HOST = 'SELECT * FROM shuteye WHERE host_id = ?';
 	var find = db.prepare(VERIFY_HOST);
 	find.get(req.params.id, function(err, row) {
 		if (row == undefined) {
@@ -111,10 +111,20 @@ app.post('/h/:id', function(req, res) {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
 				res.redirect('/h/' + req.params.id);
 			} else {
-				var page = fs.readFileSync(__dirname + '/host.html', 'utf8');
-				var data = { roomName : row.session_id };
-				var html = mustache.to_html(page, data);
-				res.send(html);
+				var sessions = row.sessions_left - 1;
+				console.log(sessions);
+				var UPDATE_SESSIONS = 'UPDATE shuteye SET sessions_left = ? WHERE host_id = ?';
+				var stmt = db.prepare(UPDATE_SESSIONS, sessions, req.params.id);
+				stmt.run(row.sessions_left - 1, req.params.id, function(err) {
+					if (err != null) {
+						res.sendfile(__dirname + '/pwd.html');
+					} else {
+						var page = fs.readFileSync(__dirname + '/host.html', 'utf8');
+						var data = { roomName : row.session_id, sessionCount : sessions };
+						var html = mustache.to_html(page, data);
+						res.send(html);
+					}
+				});
 			}
 		}
 	});

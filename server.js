@@ -13,7 +13,7 @@ var express = require('express'),
 	fs = require('fs'),
 	io 	= require('socket.io').listen(app.listen(8001));
 
-var db = new sqlite.cached.Database("./shuteye.db");
+var db = new sqlite.cached.Database(__dirname + '/shuteye.db');
 
 app.use(express.bodyParser());
 app.enable('trust proxy');

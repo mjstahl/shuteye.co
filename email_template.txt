@@ -9,7 +9,7 @@ the password you specified initially.
 
 For when you don't want to just communicate with yourself I have 
 provided you with another URL. Just copy and paste the below text 
-block below in an email. Your invitees will follow the link to join
+block into an email. Your invitees will follow the link to join
 you.
 
 =======================================================

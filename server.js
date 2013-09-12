@@ -50,7 +50,7 @@ app.get('/j/:id', function(req, res) {
 		if (row == undefined) {
 			res.redirect('/buy');
 		} else {
-			var page = fs.readFileSync('join.html', 'utf8');
+			var page = fs.readFileSync(__dirname + '/join.html', 'utf8');
 			var data = { roomName : row.session_id };
 			var html = mustache.to_html(page, data);
 			res.send(html);
@@ -90,7 +90,7 @@ app.post('/h/:id', function(req, res) {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
 				res.redirect('/h/' + req.params.id);
 			} else {
-				var page = fs.readFileSync('host.html', 'utf8');
+				var page = fs.readFileSync(__dirname + '/host.html', 'utf8');
 				var data = { roomName : row.session_id };
 				var html = mustache.to_html(page, data);
 				res.send(html);

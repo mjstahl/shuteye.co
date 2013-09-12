@@ -88,8 +88,8 @@ app.post('/purchase', function(req, res) {
 	stmt.run(host, attendee, hash, count, session);
 	stmt.finalize();
 
-	var data = { host_url : HOST_URL + '/h/' + host,
-				 join_url : JOIN_URL + '/j/' + attendee };
+	var data = { host_url : HOST_URL + host,
+				 join_url : JOIN_URL + attendee };
 	var text = mustache.render(EMAIL_TEMPLATE, data);
 	sendgrid.send({
   		to: email,

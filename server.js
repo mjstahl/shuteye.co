@@ -44,7 +44,7 @@ app.get('/h/:id', function(req, res) {
 		if (row == undefined) {
 			res.redirect('/buy');
 		} else {
-			if (sessions_left == 0) {
+			if (row.sessions_left == 0) {
 				var DELETE_SESSION = 'DELETE FROM shuteye WHERE host_id = ?';
 				var stmt = db.prepare(DELETE_SESSION);
 				stmt.run(req.params.id);
@@ -121,7 +121,6 @@ app.post('/h/:id', function(req, res) {
 				res.redirect('/h/' + req.params.id);
 			} else {
 				var sessions = row.sessions_left - 1;
-				console.log(sessions);
 				var UPDATE_SESSIONS = 'UPDATE shuteye SET sessions_left = ? WHERE host_id = ?';
 				var stmt = db.prepare(UPDATE_SESSIONS, sessions, req.params.id);
 				stmt.run(row.sessions_left - 1, req.params.id, function(err) {

@@ -44,7 +44,16 @@ app.get('/h/:id', function(req, res) {
 		if (row == undefined) {
 			res.redirect('/buy');
 		} else {
-			res.sendfile(__dirname + '/pwd.html');
+			if (sessions_left == 0) {
+				var DELETE_SESSION = 'DELETE FROM shuteye WHERE host_id = ?';
+				var stmt = db.prepare(DELETE_SESSION);
+				stmt.run(req.params.id);
+				stmt.finalize();
+
+				res.redirect('/buy');
+			} else {
+				res.sendfile(__dirname + '/pwd.html');
+			}
 		}
 	});
 });

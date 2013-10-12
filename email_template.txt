@@ -2,28 +2,29 @@ Thank you for supporting Shuteye.  Your privacy is very important
 to me and your support tells me it's important to you.
 
 To start your video session you, as the host, open the following 
-URL using Chrome or Firefox. Then you will be prompted to enter 
-the password you specified initially.
+URL using Chrome or Firefox. You will then be prompted to enter 
+the password you specified.
 
 {{&host_url}}
 
-For when you don't want to just communicate with yourself I have 
-provided you with another URL. Just copy and paste the below text 
-block into an email. Your invitees will follow the link to join
-you.
+When you don't want to just talk to yourself I have provided 
+you with attendee URL. Just copy and paste the below text 
+block into an email. Your invitees just have to follow the link 
+to join you.
 
 =======================================================
+You have been invited to chat privately on Shuteye.co
 
-Copy and paste the following hyperlink in the address bar 
-of Chrome or Firefox.
+Just Copy and paste the following hyperlink in the address 
+bar of Chrome or Firefox.
 
 {{&join_url}}
 
 =======================================================
 
 If you or your attendees experience any problems with the service 
-please contact me. I would love to hear any feedback about your 
-experience.
+please contact me. And I would love to hear any feedback about 
+your experience.
 
 Mark Stahl
 mark@shuteye.co

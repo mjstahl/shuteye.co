@@ -10,6 +10,11 @@
   margin-top: 8px;
 }
 
+.navbar-inner {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 .navbar-fixed-bottom {
   margin-bottom: 20px;
 }

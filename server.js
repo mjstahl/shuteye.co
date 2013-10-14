@@ -79,13 +79,9 @@ var JOIN_URL = 'https://shuteye.co/j/';
 var FROM_ADDR = 'mark@shuteye.co';
 
 app.post('/purchase', function(req, res) {
-	var count = 5, //req.body['session-count'],
+	var count = 5,
 		email = req.body['email'],
 		password = req.body['password'];
-		//token = req.body['purchaseToken'];
-
-	// process transaction with Stripe using 'token'
-	// on success continue
 
 	var hash = bcrypt.hashSync(password, 10),
 		host = randomSHA1(),
@@ -142,6 +138,12 @@ app.all('*', function(req, res) {
 	res.redirect('/new');
 });
 
+// Utility Functions
+function randomSHA1() {
+	var seed = crypto.randomBytes(20);
+	return crypto.createHash('sha1').update(seed).digest('hex');
+}
+
 // https://github.com/andyet/signalmaster
 //
 // Written by Henrik Joreteg.
@@ -188,9 +190,3 @@ io.sockets.on('connection', function(client) {
 			client.join(name);
 	});
 });
-
-// Utility Functions
-function randomSHA1() {
-	var seed = crypto.randomBytes(20);
-	return crypto.createHash('sha1').update(seed).digest('hex');
-}

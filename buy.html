@@ -33,6 +33,7 @@
 					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
 				</div>
 				<fieldset>
+					<!--
 					<select name="session-count" id="session-count">
 						<option value="1">1 Session</option>
 						<option value="2">2 Sessions</option>
@@ -68,6 +69,7 @@
 					<span class="inform help-block">
 						$1 Per Session, Unlimited Attendees, No Time Limit
 					</span>
+					-->
 					<input name="email" id="email" type="email" placeholder="Email Address" required>
 					<input name="password" id="password" type="password" placeholder="Password" required>
 					<span class="help-inline show-hide-pwd">
@@ -78,6 +80,7 @@
 					<span class="help-block inform" class="help-block">
 						DO NOT LOSE YOUR PASSWORD. It cannot be retrieved if lost.	
 					</span>
+					<!--
 					<input type="text" class="" id="cc-num" placeholder="Credit Card #" data-stripe="number">
 					<span class="inform help-block">
 						Visa, Mastercard, Discover, American Express
@@ -88,14 +91,17 @@
 						<input type="hidden" id="cc-year" data-stripe="exp-year">
 						<input type="text" id="cc-cvc" placeholder="CVC" data-stripe="cvc">
 					</div>
-					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Pay $10.00">
+					-->
+					<input type="submit" id="submit-purchase" class="btn btn-large btn-success" value="Get 5 Sessions">
 				</fieldset>
 			</form>
 		</div>
 	</div>
 	<script src="/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<!--
 	<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
 	<script src="/js/jquery.payment.js" type="text/javascript"></script>
+	-->
 	<script src="/js/forms.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		if (navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
@@ -104,8 +110,10 @@
 			$('#browser-not-supported').toggleClass('hide', false);
 		}
 	</script>
+	<!--
 	<script type="text/javascript">
 		Stripe.setPublishableKey('pk_test_czwzkTp2tactuLOEOqbMTRzG');
 	</script>
+	-->
 </body>
 </html>

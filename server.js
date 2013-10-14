@@ -33,7 +33,7 @@ app.get('/faq', function(req, res) {
 	res.sendfile(__dirname + '/faq.html');
 });
 
-app.get('/buy', function(req, res) {
+app.get('/new', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
@@ -79,10 +79,10 @@ var JOIN_URL = 'https://shuteye.co/j/';
 var FROM_ADDR = 'mark@shuteye.co';
 
 app.post('/purchase', function(req, res) {
-	var count = req.body['session-count'],
+	var count = 5, //req.body['session-count'],
 		email = req.body['email'],
-		password = req.body['password'],
-		token = req.body['purchaseToken'];
+		password = req.body['password'];
+		//token = req.body['purchaseToken'];
 
 	// process transaction with Stripe using 'token'
 	// on success continue
@@ -103,7 +103,7 @@ app.post('/purchase', function(req, res) {
 	sendgrid.send({
   		to: email,
   		from: FROM_ADDR,
-  		subject: 'Welcome to Shuteye!',
+  		subject: '[Shuteye.co] Welcome to Shuteye!',
   		text: text
 	});
 

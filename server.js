@@ -50,7 +50,7 @@ app.get('/h/:id', function(req, res) {
 				stmt.run(req.params.id);
 				stmt.finalize();
 
-				res.redirect('/buy');
+				res.redirect('/new');
 			} else {
 				res.sendfile(__dirname + '/pwd.html');
 			}
@@ -63,7 +63,7 @@ app.get('/j/:id', function(req, res) {
 	var stmt = db.prepare(FIND_SESSION);
 	stmt.get(req.params.id, function(err, row) {
 		if (row == undefined) {
-			res.redirect('/buy');
+			res.redirect('/new');
 		} else {
 			var page = fs.readFileSync(__dirname + '/join.html', 'utf8');
 			var data = { roomName : row.session_id };
@@ -115,7 +115,7 @@ app.post('/h/:id', function(req, res) {
 	var find = db.prepare(VERIFY_HOST);
 	find.get(req.params.id, function(err, row) {
 		if (row == undefined) {
-			res.redirect('/buy');
+			res.redirect('/new');
 		} else {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
 				res.redirect('/h/' + req.params.id);
@@ -139,7 +139,7 @@ app.post('/h/:id', function(req, res) {
 });
 
 app.all('*', function(req, res) {
-	res.redirect('/buy');
+	res.redirect('/new');
 });
 
 // https://github.com/andyet/signalmaster

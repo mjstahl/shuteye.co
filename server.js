@@ -58,7 +58,7 @@ app.get('/h/:id', function(req, res) {
 
 				res.redirect('/new');
 			} else {
-				var data = { incorrect : false };
+				var data = { incorrect : false, session : req.params.id };
 				var html = mustache.to_html(PASSWORD_TEMPLATE, data);
 				res.send(html);
 			}
@@ -67,7 +67,7 @@ app.get('/h/:id', function(req, res) {
 });
 
 app.get('/h/:id/password-error', function(req, res) {
-	var data = { incorrect : true };
+	var data = { incorrect : true, session : req.params.id };
 	var html = mustache.to_html(PASSWORD_TEMPLATE, data);
 	res.send(html);
 });

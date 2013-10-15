@@ -156,9 +156,9 @@ app.post('/h/:id', function(req, res) {
 	});
 });
 
-// app.all('*', function(req, res) {
-// 	res.redirect('/new');
-// });
+app.all('*', function(req, res) {
+	res.redirect('/new');
+});
 
 // Utility Functions
 function randomSHA1() {

@@ -207,8 +207,4 @@ io.sockets.on('connection', function(client) {
 
 	client.on('diconnect', leave);
 	client.on('leave', leave);
-
-	client.on('create', function(name, callback) {
-			client.join(name);
-	});
 });

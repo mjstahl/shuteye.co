@@ -12,6 +12,11 @@ form {
 	text-align: center;
 }
 
+#session-error {
+	width: 364px !important;
+	text-align: center;
+}
+
 form select {
 	height: 45px;
 	font-size: 20px;

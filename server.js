@@ -36,15 +36,15 @@ app.get('/about', function(req, res) {
 var SIGNUP_TEMPLATE = fs.readFileSync(__dirname + '/buy.html', 'utf8');
 
 app.get('/new', function(req, res) {
-	var data = { error : false }
+	var data = { error : true };
 	var html = mustache.to_html(SIGNUP_TEMPLATE, data);
-	res.send(html)
+	res.send(html);
 });
 
 app.get('/new/session-error', function(req, res) {
-	var data = { error : true }
+	var data = { error : true };
 	var html = mustache.to_html(SIGNUP_TEMPLATE, data);
-	res.send(html)
+	res.send(html);
 });
 
 var PASSWORD_TEMPLATE = fs.readFileSync(__dirname + '/pwd.html', 'utf8');
@@ -156,9 +156,9 @@ app.post('/h/:id', function(req, res) {
 	});
 });
 
-app.all('*', function(req, res) {
-	res.redirect('/new');
-});
+// app.all('*', function(req, res) {
+// 	res.redirect('/new');
+// });
 
 // Utility Functions
 function randomSHA1() {

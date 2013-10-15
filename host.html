@@ -53,7 +53,7 @@
 		autoRequestMedia: true
 	});
 	rtc.on('readyToCall', function() {
-		rtc.createRoom("{{roomName}}");
+		rtc.joinRoom("{{roomName}}");
 	});
 
 	window.onbeforeunload = function() { rtc.leaveRoom(); }

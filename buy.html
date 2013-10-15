@@ -29,12 +29,18 @@
 	</div>
 	<div class="row-fluid">
 		<div class="offset3 span6">
-			<form id="payment-form" method="POST" action="/purchase">
+			<form id="payment-form" method="POST" action="/signup">
 				<div id="browser-not-supported" class="hide alert alert-error">
 					<strong>SHUTEYE DOES NOT SUPPORT YOUR BROWSER</strong>
 					<br/>
 					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when starting a session.
 				</div>
+				{{#error}}
+				<div id="session-error" class="alert alert-error">
+					There was either an error finding your session, or the session
+					count has reached zero.
+				</div>
+				{{/error}}
 				<fieldset>
 					<input name="email" id="email" type="email" placeholder="Email Address" required>
 					<input name="password" id="password" type="password" placeholder="Password" required>

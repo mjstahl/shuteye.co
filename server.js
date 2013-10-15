@@ -33,12 +33,18 @@ app.get('/about', function(req, res) {
 	res.sendfile(__dirname + '/faq.html');
 });
 
+var SIGNUP_TEMPLATE = fs.readFileSync(__dirname + '/buy.html', 'utf8');
+
 app.get('/new', function(req, res) {
-	res.sendfile(__dirname + '/buy.html');
+	var data = { error : false }
+	var html = mustache.to_html(SIGNUP_TEMPLATE, data);
+	res.send(html)
 });
 
 app.get('/new/session-error', function(req, res) {
-
+	var data = { error : true }
+	var html = mustache.to_html(SIGNUP_TEMPLATE, data);
+	res.send(html)
 });
 
 var PASSWORD_TEMPLATE = fs.readFileSync(__dirname + '/pwd.html', 'utf8');
@@ -77,7 +83,7 @@ app.get('/j/:id', function(req, res) {
 	var stmt = db.prepare(FIND_SESSION);
 	stmt.get(req.params.id, function(err, row) {
 		if (row == undefined) {
-			res.redirect('/new');
+			res.redirect('/new/session-error');
 		} else {
 			var page = fs.readFileSync(__dirname + '/join.html', 'utf8');
 			var data = { roomName : row.session_id };
@@ -92,7 +98,7 @@ var HOST_URL = 'https://shuteye.co/h/';
 var JOIN_URL = 'https://shuteye.co/j/';
 var FROM_ADDR = 'mark@shuteye.co';
 
-app.post('/purchase', function(req, res) {
+app.post('/signup', function(req, res) {
 	var count = 5,
 		email = req.body['email'],
 		password = req.body['password'];
@@ -125,7 +131,7 @@ app.post('/h/:id', function(req, res) {
 	var find = db.prepare(VERIFY_HOST);
 	find.get(req.params.id, function(err, row) {
 		if (row == undefined) {
-			res.redirect('/new');
+			res.redirect('/new/session-error');
 		} else {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
 				res.redirect('/h/' + req.params.id + '/password-error');

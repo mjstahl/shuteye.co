@@ -37,6 +37,8 @@ app.get('/new', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
+var PASSWORD_TEMPLATE = fs.readFileSync(__dirname + '/pwd.html', 'utf8');
+
 app.get('/h/:id', function(req, res) {
 	var VERIFY_HOST = 'SELECT * FROM shuteye WHERE host_id = ?';
 	var stmt = db.prepare(VERIFY_HOST);
@@ -52,7 +54,9 @@ app.get('/h/:id', function(req, res) {
 
 				res.redirect('/new');
 			} else {
-				res.sendfile(__dirname + '/pwd.html');
+				var data = { incorrect : false };
+				var html = mustache.to_html(PASSWORD_TEMPLATE, data);
+				res.send(html);
 			}
 		}
 	});
@@ -121,7 +125,9 @@ app.post('/h/:id', function(req, res) {
 				var stmt = db.prepare(UPDATE_SESSIONS, sessions, req.params.id);
 				stmt.run(row.sessions_left - 1, req.params.id, function(err) {
 					if (err != null) {
-						res.sendfile(__dirname + '/pwd.html');
+						var data = { incorrect : false };
+						var html = mustache.to_html(PASSWORD_TEMPLATE, data);
+						res.send(html);
 					} else {
 						var page = fs.readFileSync(__dirname + '/host.html', 'utf8');
 						var data = { roomName : row.session_id, sessionCount : sessions };

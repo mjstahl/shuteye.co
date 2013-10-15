@@ -110,9 +110,11 @@ footer {
   margin-left: -60px;
 }
 
-#browser-not-supported {
+#browser-not-supported, #password-error {
   text-align: center;
 }
+
+
 
 video {
   width: 90%;

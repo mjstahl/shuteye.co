@@ -35,6 +35,11 @@
 					<br/>
 					Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/">Firefox</a> when hosting a session.
 				</div>
+				{{#incorrect}}
+				<div id="password-error" class="alert alert-error">
+					The password you entered was incorrect. Please try again.
+				</div>
+				{{/incorrect}}
 				<fieldset id="enter-password">
 					<input id="password" name="password" type="password" placeholder="Session Password" required>
 					<span class="help-inline show-hide-pwd">

@@ -54,7 +54,7 @@ app.get('/h/:id', function(req, res) {
 	var stmt = db.prepare(VERIFY_HOST);
 	stmt.get(req.params.id, function(err, row) {
 		if (row == undefined) {
-			res.redirect('/new');
+			res.redirect('/new/session-error');
 		} else {
 			if (row.sessions_left == 0) {
 				var DELETE_SESSION = 'DELETE FROM shuteye WHERE host_id = ?';
@@ -62,7 +62,7 @@ app.get('/h/:id', function(req, res) {
 				stmt.run(req.params.id);
 				stmt.finalize();
 
-				res.redirect('/new');
+				res.redirect('/new/session-error');
 			} else {
 				var data = { incorrect : false, session : req.params.id };
 				var html = mustache.to_html(PASSWORD_TEMPLATE, data);

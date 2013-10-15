@@ -37,6 +37,10 @@ app.get('/new', function(req, res) {
 	res.sendfile(__dirname + '/buy.html');
 });
 
+app.get('/new/session-error', function(req, res) {
+
+});
+
 var PASSWORD_TEMPLATE = fs.readFileSync(__dirname + '/pwd.html', 'utf8');
 
 app.get('/h/:id', function(req, res) {
@@ -60,6 +64,12 @@ app.get('/h/:id', function(req, res) {
 			}
 		}
 	});
+});
+
+app.get('/h/:id/password-error', function(req, res) {
+	var data = { incorrect : true };
+	var html = mustache.to_html(PASSWORD_TEMPLATE, data);
+	res.send(html);
 });
 
 app.get('/j/:id', function(req, res) {
@@ -118,7 +128,7 @@ app.post('/h/:id', function(req, res) {
 			res.redirect('/new');
 		} else {
 			if (!bcrypt.compareSync(req.body.password, row.password)) {
-				res.redirect('/h/' + req.params.id);
+				res.redirect('/h/' + req.params.id + '/password-error');
 			} else {
 				var sessions = row.sessions_left - 1;
 				var UPDATE_SESSIONS = 'UPDATE shuteye SET sessions_left = ? WHERE host_id = ?';

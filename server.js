@@ -36,7 +36,7 @@ app.get('/about', function(req, res) {
 var SIGNUP_TEMPLATE = fs.readFileSync(__dirname + '/buy.html', 'utf8');
 
 app.get('/new', function(req, res) {
-	var data = { error : true };
+	var data = { error : false };
 	var html = mustache.to_html(SIGNUP_TEMPLATE, data);
 	res.send(html);
 });

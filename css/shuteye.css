@@ -124,12 +124,13 @@ footer {
 }
 
 .modal-input {
-  margin-left: 25px;
+  margin-left: 30px;
   width: 85%;
 }
 
 .modal-text {
-  margin-left: 25px;
+  margin-left: 17px;
+  font-weight: bold;
 }
 
 video {

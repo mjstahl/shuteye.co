@@ -10,6 +10,10 @@ body {
   height: 44px;
 }
 
+.navbar {
+  margin-bottom: 5px;
+}
+
 .navbar-form {
   margin-top: 8px;
 }

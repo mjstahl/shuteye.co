@@ -123,6 +123,15 @@ footer {
   margin-left: -60px;
 }
 
+.modal-body > input {
+  margin-left: 25px;
+  width: 85%;
+}
+
+.modal-body > p {
+  margin-left: 25px;
+}
+
 video {
   width: 90%;
   height: auto;

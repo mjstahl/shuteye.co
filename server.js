@@ -146,7 +146,9 @@ app.post('/h/:id', function(req, res) {
 						res.send(html);
 					} else {
 						var page = fs.readFileSync(__dirname + '/host.html', 'utf8');
-						var data = { roomName : row.session_id, sessionCount : sessions };
+						var data = { roomName : row.session_id, 
+									 sessionCount : sessions,
+									 join_url : JOIN_URL + row.attendee_id };
 						var html = mustache.to_html(page, data);
 						res.send(html);
 					}

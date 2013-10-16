@@ -123,17 +123,8 @@ footer {
   margin-left: -60px;
 }
 
-#invite-modal .input-append {
-  width: 100%;
-}
-
-.input-append i {
-  color: black;
-  font-weight: bold;
-}
-
 .modal-input {
-  margin-left: 12px;
+  margin-left: 30px;
   cursor: default !important;
   width: 85%;
 }

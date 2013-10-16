@@ -49,7 +49,12 @@
 	<div id="invite-modal" class="modal hide fade" tabIndex="-1" role="dialog">
 		<div class="modal-body">
 			<p class="modal-text">Invite others to join this conversation by sending them the following URL:</p>
-			<input class="modal-input" type="text" value="https://shuteye.co/j/d982726ab032a592d5d7361ea1234faee77245fb" readonly></input>
+			<div class="input-append">
+				<input class="modal-input" type="text" value="https://shuteye.co/j/d982726ab032a592d5d7361ea1234faee77245fb" readonly></input>
+				<button class="btn button-success" type="button">
+					<i class="icon-copy"></i>
+				</button>
+			</div>
 		</div>
 	</div>
 	<script src="/js/jquery-1.10.2.min.js"></script>
@@ -60,6 +65,10 @@
 	$('#invite-link').on('click', function(e) {
 		e.preventDefault();
 		$('#invite-modal').modal('show');
+	});
+
+	$('.modal-input').focus(function() {
+		this.select();
 	});
 
 	var rtc = new WebRTC({

@@ -124,8 +124,9 @@ footer {
 }
 
 .modal-input {
-  margin-left: 30px;
+  margin-left: 25px;
   width: 85%;
+  cursor: default;
 }
 
 .modal-text {

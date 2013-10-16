@@ -11,7 +11,7 @@ body {
 }
 
 .navbar {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .navbar-form {
@@ -53,6 +53,11 @@ body {
 
 .link {
   color: #0088cc !important;
+  text-decoration: none !important;
+}
+
+.invite-link {
+  color: #74c365 !important;
   text-decoration: none !important;
 }
 

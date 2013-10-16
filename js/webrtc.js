@@ -568,7 +568,7 @@ Conversation.prototype.updateSessionButton = function() {
         sessions.innerText = (left < 0) ? 0 : left;
         if (left == 0) {
             var buy = document.getElementById('buy')
-            buy.setAttribute('class', 'btn btn-large btn-danger')
+            buy.setAttribute('class', 'btn btn-danger')
         }
     }
 };

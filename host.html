@@ -51,7 +51,7 @@
 			<p class="modal-text">Invite others to join this conversation by sending them the following URL:</p>
 			<div class="input-append">
 				<input class="modal-input" type="text" value="https://shuteye.co/j/d982726ab032a592d5d7361ea1234faee77245fb" readonly></input>
-				<button class="btn button-success" type="button">
+				<button class="btn" type="button">
 					<i class="icon-copy"></i>
 				</button>
 			</div>
@@ -67,7 +67,7 @@
 		$('#invite-modal').modal('show');
 	});
 
-	$('.modal-input').focus(function() {
+	$('.modal-input').click(function() {
 		this.select();
 	});
 

@@ -1,30 +1,19 @@
-Thank you for supporting Shuteye.  Your privacy is very important 
-to me and your support tells me it's important to you.
+Thank you very much for your interest in Shuteye. Follow
+the steps below to begin a conversation.
 
-To start your video session you, as the host, open the following 
-URL using Chrome or Firefox. You will then be prompted to enter 
-the password you specified.
+Step 1. Click on the following URL to start a session.
 
 {{&host_url}}
 
-When you don't want to just talk to yourself I have provided 
-you with attendee URL. Just copy and paste the below text 
-block into an email. Your invitees just have to follow the link 
-to join you.
-
-=======================================================
-You have been invited to chat privately on Shuteye.co
-
-Just Copy and paste the following hyperlink in the address 
-bar of Chrome or Firefox.
+Step 2. Send this URL to anyone you want to invite to join the 
+conversation.
 
 {{&join_url}}
 
-=======================================================
+If you or your attendees experience any problems with the 
+service please contact me. 
 
-If you or your attendees experience any problems with the service 
-please contact me. And I would love to hear any feedback about 
-your experience.
+I would love to hear any feedback about your experience.
 
 Mark Stahl
 mark@shuteye.co

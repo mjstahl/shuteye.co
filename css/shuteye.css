@@ -123,12 +123,12 @@ footer {
   margin-left: -60px;
 }
 
-.modal-body > input {
+.modal-input {
   margin-left: 25px;
   width: 85%;
 }
 
-.modal-body > p {
+.modal-text {
   margin-left: 25px;
 }
 

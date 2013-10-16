@@ -509,8 +509,6 @@ Conversation.prototype.handleRemoteStreamAdded = function (event) {
         if (container.getAttribute('id') == 'remote') {
             var local = document.getElementById('local');
             local.setAttribute('class', 'pip');
-
-            this.updateSessionButton();
         } else {
             this.registerVideoOnClick(el);
         }
@@ -559,18 +557,6 @@ Conversation.prototype.handleStreamRemoved = function () {
     this.emit('videoRemoved', video);
     delete this.parent.pcs[this.id];
     this.closed = true;
-};
-
-Conversation.prototype.updateSessionButton = function() {
-    var sessions = document.getElementById('sessions-left')
-    if (sessions) {
-        var left = sessions.innerText - 1;
-        sessions.innerText = (left < 0) ? 0 : left;
-        if (left == 0) {
-            var buy = document.getElementById('buy')
-            buy.setAttribute('class', 'btn btn-danger')
-        }
-    }
 };
 
 // expose WebRTC

@@ -27,7 +27,7 @@
 					<a href="http://blog.shuteye.co" class="link">BLOG</a>
 				</li>
 				<li>
-					<a href="#invite-modal" class="invite-link">INVITE</a>
+					<a href="#" id="invite-link" class="invite-link">INVITE</a>
 				</li>
 			</ul>
 			<form class="navbar-form pull-right" action="/new" method="get" target="_blank">
@@ -61,6 +61,11 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/webrtc.js"></script>
 	<script>
+	$('#invite-link').on('click', function(e) {
+		e.preventDefault();
+		$('#invite-modal').modal('show');
+	});
+
 	var rtc = new WebRTC({
 		localVideoEl: 'local',
 		remoteVideosEl: 'remote',
